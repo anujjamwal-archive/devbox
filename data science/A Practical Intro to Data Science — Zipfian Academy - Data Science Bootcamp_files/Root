@@ -1,0 +1,156 @@
+// Set a bunch of the values for ClipperConstants.ts
+if (typeof(Clipper) == "undefined" || typeof(Clipper.Constants) == "undefined")
+{
+	var Clipper =
+		{
+			Constants:
+				{
+					Urls:
+						{
+							ClipperUI: "https://www.onenote.com/clipper/ui?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107",
+							AugmentedPreview: "https://www.onenote.com/clipper/preview?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107",
+							RegionClipper: "https://www.onenote.com/clipper/region?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107",
+							NoOpTracker: "https://www.onenote.com/clipper/nooptracker?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107",
+
+							ClipperMainJs: "https://cdn.onenote.net/1665011550_Scripts/ClipperMain.js",
+
+							FeedbackCss: "https://cdn.onenote.net/1665011550_Styles/en-US/OfficeBrowserFeedback.css",
+							ClipperMainCss: "https://cdn.onenote.net/1665011550_Styles/en-US/ClipperMain.css",
+
+							Images:
+								{
+									Root: "https://cdn.onenote.net/1665011550_Images/"
+								}
+						},
+
+					Brs:
+						{
+							InlineIFrames: false,
+							MaxPartLength: "2097152",
+							InlineCssDomainWhiteList: "mail.exchange.microsoft.com".split(),
+							RegionClipEnabled: true,
+							ImageMetadataEnabled: false
+						},
+
+					AttributeValues:
+						{
+							LocalizedDirection: "ltr"
+						},
+
+					Numbers:
+						{
+							Lcid: Number(1033),
+							NoOpTimeoutInMs: Number(8000)
+						},
+
+					IDs:
+						{
+							MainContainer: "oneNoteClipperWindow",
+							ClipperMainScript: "oneNoteClipperMainScript",
+
+							// Don't change this id, we need to support already installed bookmarklets
+							RootScript: "oneNoteCaptureRootScript"
+						},
+
+					Strings:
+						{
+							AbortError: "Sorry, we aren't able to clip this page right now.",
+							UnsupportedBrowserError: "Sorry, we don't support this browser."
+						}
+				}
+		};
+}
+
+var ClipperInfo = {};
+if (typeof JSON !== "undefined" && JSON.parse)
+{
+	ClipperInfo = JSON.parse("{\"ClipperId\":\"ON-f6c3849e-73c7-4dfe-16fe-6a99aa11d6a1\",\"ClipperType\":\"ChromeExtension\",\"ClipperVersion\":\"2.1.2\"}");
+}
+
+// Older bookmarklets and extensions used to store these either on the window or the root script
+// If we don't have them, look there
+var rootScript = document.getElementById(Clipper.Constants.IDs.RootScript);
+if(ClipperInfo.ClipperId==null || ClipperInfo.ClipperId === "")
+{
+	if (typeof window.clipperId != "undefined")
+	{
+		ClipperInfo.ClipperId = window.clipperId;
+	}
+	else if(rootScript)
+	{
+		ClipperInfo.ClipperId = rootScript.getAttribute("clipperId");
+	}
+	else
+	{
+		ClipperInfo.ClipperId = "UNKNOWN";
+	}
+}
+
+if (ClipperInfo.ClipperType == null || ClipperInfo.ClipperType === "")
+{
+	var clipperType = rootScript ? rootScript.getAttribute("clipperType") : null;
+	if(clipperType != null && clipperType === "")
+	{
+		ClipperInfo.ClipperType = clipperType;
+	}
+	else if (typeof window.clipperType != "undefined" && window.clipperType != null && window.clipperType != "")
+	{
+		ClipperInfo.ClipperType = window.clipperType;
+	}
+	else
+	{
+		ClipperInfo.ClipperType = "Bookmarklet";
+	}
+}
+
+function AddTag(tagType, url, id, onError)
+{
+	var tag = document.createElement(tagType);
+	tag.setAttribute("src", url);
+	if (id)
+	{
+		tag.setAttribute("id", id);
+	}
+	tag.setAttribute("type", "text/javascript");
+	tag.onerror = onError;
+	document.body.appendChild(tag);
+}
+
+// Prepare to catch a no-op after 8 seconds
+var NoOpProgress = "root"; // no-op detection telemetry
+var NoOpException = "none";
+var NoOpLogged = false;
+var NoOpAlertMessage = Clipper.Constants.Strings.AbortError;
+function NoOpDetected()
+{
+	if(NoOpLogged)
+	{
+		return;
+	}
+
+	NoOpLogged = true;
+	AddTag("img", Clipper.Constants.Urls.NoOpTracker
+		+ "&p=" + NoOpProgress
+		+ "&ClipperId=" + ClipperInfo.ClipperId
+		+ "&ClipperType=" + ClipperInfo.ClipperType
+		+ "&u=" + window.location
+		+ "&e=" + NoOpException, null);
+
+	alert(NoOpAlertMessage);
+}
+var NoOpDetectionId = setTimeout(NoOpDetected, Clipper.Constants.Numbers.NoOpTimeoutInMs);
+
+// Launch our code!!
+if (document.getElementById(Clipper.Constants.IDs.ClipperMainScript) == null || Clipper.Main == null)
+{
+	NoOpProgress = "Loading ClipperMain.js";
+	AddTag("script", Clipper.Constants.Urls.ClipperMainJs, Clipper.Constants.IDs.ClipperMainScript, function()
+	{
+		NoOpDetected();
+	});
+}
+else
+{
+	// The code already exists, just launch it again
+	Clipper.Main();
+}

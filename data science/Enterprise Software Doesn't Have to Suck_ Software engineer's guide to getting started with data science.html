@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html -->
+<html class="v2" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="width=1100" name="viewport">
+
+<script type="text/javascript">(function() { (function(){function c(a){this.t={};this.tick=function(a,c,b){var d=void 0!=b?b:(new Date).getTime();this.t[a]=[d,c];if(void 0==b)try{window.console.timeStamp("CSI/"+a)}catch(e){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var h=a?new c(a.responseStart):new c;window.jstiming={Timer:c,load:h};if(a){var b=a.navigationStart,e=a.responseStart;0<b&&e>=b&&(window.jstiming.srt=e-b)}if(a){var d=window.jstiming.load;0<b&&e>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_",
+"_wtsrt",e),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(k){}})();window.tickAboveFold=function(c){var a=0;if(c.offsetParent){do a+=c.offsetTop;while(c=c.offsetParent)}c=a;750>=c&&window.jstiming.load.tick("aft")};var f=!1;function g(){f||(f=!0,window.jstiming.load.tick("firstScrollTime"))}window.addEventListener?window.addEventListener("scroll",g,!1):window.attachEvent("onscroll",g);
+ })();</script>
+<meta content="blogger" name="generator">
+<link href="http://www.rcasts.com/favicon.ico" rel="icon" type="image/x-icon">
+<link href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Enterprise Software Doesn&#39;t Have to Suck - Atom" href="http://www.rcasts.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Enterprise Software Doesn&#39;t Have to Suck - RSS" href="http://www.rcasts.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Enterprise Software Doesn&#39;t Have to Suck - Atom" href="https://www.blogger.com/feeds/6576681508814660796/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="Enterprise Software Doesn&#39;t Have to Suck - Atom" href="http://www.rcasts.com/feeds/3543517264764139272/comments/default">
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/1494333581-ieretrofit.js"></script>
+<![endif]-->
+<link href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/data+science+is+the+new+black.png" rel="image_src">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Enterprise Software Doesn't Have to Suck: Software engineer's guide to getting started with data science</title>
+<link type="text/css" rel="stylesheet" href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/1578089587-css_bundle_v2.css">
+<link type="text/css" rel="stylesheet" href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/authorization.css">
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Josh Peterson
+URL:      www.noaesthetic.com
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#66bbdd"/>
+<Group description="Page Text" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Backgrounds" selector=".body-fauxcolumns-outer">
+<Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd"/>
+<Variable name="content.background.color" description="Main Background" type="color" default="#ffffff"/>
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent"/>
+</Group>
+<Group description="Links" selector=".main-outer">
+<Variable name="link.color" description="Link Color" type="color" default="#2288bb"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#888888"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Font" type="font"
+default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#3399bb" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.text.color" description="Description Color" type="color"
+default="#777777" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#999999"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, .comments h4">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+</Group>
+<Group description="Date Header" selector=".date-header">
+<Variable name="date.header.color" description="Text Color" type="color"
+default="#cccccc"/>
+<Variable name="date.header.background.color" description="Background Color" type="color"
+default="transparent"/>
+<Variable name="date.header.font" description="Text Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="date.header.padding" description="Date Header Padding" type="string" default="inherit"/>
+<Variable name="date.header.letterspacing" description="Date Header Letter Spacing" type="string" default="inherit"/>
+<Variable name="date.header.margin" description="Date Header Margin" type="string" default="inherit"/>
+</Group>
+<Group description="Post Footer" selector=".post-footer">
+<Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="post.footer.background.color" description="Background Color" type="color"
+default="#f9f9f9"/>
+<Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadgets" selector="h2">
+<Variable name="widget.title.font" description="Title Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999"/>
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="#ffffff"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee"/>
+<Variable name="image.text.color" description="Caption Text Color" type="color" default="#cccccc"/>
+</Group>
+<Group description="Accents" selector=".content-inner">
+<Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee"/>
+<Variable name="tabs.border.color" description="Tabs Border Color" type="color" default="#404040"/>
+</Group>
+<Variable name="body.background" description="Body Background" type="background"
+color="#292929" default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.override" description="Body Background Override" type="string" default=""/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="body.background.gradient.tile" description="Body Gradient Tile" type="url"
+default="url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)"/>
+<Variable name="content.background.color.selector" description="Content Background Color Selector" type="string" default=".content-inner"/>
+<Variable name="content.padding" description="Content Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.padding.horizontal" description="Content Horizontal Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.shadow.spread" description="Content Shadow Spread" type="length" default="40px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.webkit" description="Content Shadow Spread (WebKit)" type="length" default="5px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.ie" description="Content Shadow Spread (IE)" type="length" default="10px" min="0" max="100px"/>
+<Variable name="main.border.width" description="Main Border Width" type="length" default="0" min="0" max="10px"/>
+<Variable name="header.background.gradient" description="Header Gradient" type="url" default="none"/>
+<Variable name="header.shadow.offset.left" description="Header Shadow Offset Left" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.offset.top" description="Header Shadow Offset Top" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.spread" description="Header Shadow Spread" type="length" default="1px" min="0" max="100px"/>
+<Variable name="header.padding" description="Header Padding" type="length" default="30px" min="0" max="100px"/>
+<Variable name="header.border.size" description="Header Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.bottom.border.size" description="Header Bottom Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.border.horizontalsize" description="Header Horizontal Border Size" type="length" default="0" min="0" max="10px"/>
+<Variable name="description.text.size" description="Description Text Size" type="string" default="140%"/>
+<Variable name="tabs.margin.top" description="Tabs Margin Top" type="length" default="0" min="0" max="100px"/>
+<Variable name="tabs.margin.side" description="Tabs Side Margin" type="length" default="30px" min="0" max="100px"/>
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="tabs.border.width" description="Tabs Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="tabs.bevel.border.width" description="Tabs Bevel Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="post.margin.bottom" description="Post Bottom Margin" type="length" default="25px" min="0" max="100px"/>
+<Variable name="image.border.small.size" description="Image Border Small Size" type="length" default="2px" min="0" max="10px"/>
+<Variable name="image.border.large.size" description="Image Border Large Size" type="length" default="5px" min="0" max="10px"/>
+<Variable name="page.width.selector" description="Page Width Selector" type="string" default=".region-inner"/>
+<Variable name="page.width" description="Page Width" type="string" default="auto"/>
+<Variable name="main.section.margin" description="Main Section Margin" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding" description="Main Padding" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding.top" description="Main Padding Top" type="length" default="30px" min="0" max="100px"/>
+<Variable name="main.padding.bottom" description="Main Padding Bottom" type="length" default="30px" min="0" max="100px"/>
+<Variable name="paging.background"
+color="#333333"
+description="Background of blog paging area" type="background"
+default="transparent none no-repeat scroll top center"/>
+<Variable name="footer.bevel" description="Bevel border length of footer" type="length" default="0" min="0" max="10px"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string" default="auto"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #cccccc;
+background: #292929 none repeat scroll top left;
+padding: 0 40px 40px 40px;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+h2 {
+font-size: 22px;
+}
+a:link {
+text-decoration:none;
+color: #dd7700;
+}
+a:visited {
+text-decoration:none;
+color: #cc6600;
+}
+a:hover {
+text-decoration:underline;
+color: #cc6600;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent none repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+background: #292929 none repeat scroll top left;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent none repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 10px #333333;
+box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 10px;
+}
+.content-inner {
+background-color: #333333;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: transparent none repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+text-shadow: -1px -1px 1px rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font-size: 140%;
+color: #aaaaaa;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 30px;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 30px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 1px solid #404040;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -1px;
+border-top: 1px solid #404040;
+border-left: 0 solid #404040;
+border-right: 0 solid #404040;
+}
+.tabs-inner .widget ul {
+background: #222222 none repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #404040;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #999999;
+border-left: 1px solid #333333;
+border-right: 0 solid #404040;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #ffffff;
+background-color: #000000;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid #404040;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid #404040;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid #404040;
+}
+/* Headings
+----------------------------------------------- */
+div.widget > h2,
+div.widget h2.title {
+margin: 0 0 1em 0;
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #999999;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+background-color: transparent;
+color: #cccccc;
+padding: inherit;
+letter-spacing: inherit;
+margin: inherit;
+}
+.main-inner {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.main-inner .column-center-inner {
+padding: 0 15px;
+}
+.main-inner .column-center-inner .section {
+margin: 0 15px;
+}
+.post {
+margin: 0 0 25px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 0;
+background: #111111;
+border: 1px solid #111111;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 1px;
+}
+.post-body .tr-caption-container {
+color: #cccccc;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #888888;
+background-color: #303030;
+border-bottom: 1px solid #444444;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid #404040;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #111111;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #999999;
+border-bottom: 1px solid #999999;
+}
+.comments .comment-thread.inline-thread {
+background-color: #303030;
+}
+.comments .continue {
+border-top: 2px solid #999999;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid #404040;
+}
+.blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #333333;
+padding: 5px;
+}
+.footer-outer {
+border-top: 0 dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #333333;
+}
+.mobile-index-contents {
+color: #cccccc;
+}
+.mobile-link-button {
+background-color: #dd7700;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #000000;
+color: #ffffff;
+border-top: 1px solid #404040;
+border-bottom: 1px solid #404040;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #404040;
+}
+
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 1200px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1200px;
+max-width: 1200px;
+_width: 1200px;
+}
+.main-inner .columns {
+padding-left: 0;
+padding-right: 250px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0;
+right: 250px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0") -
+parseInt("250px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 250px;
+}
+.main-inner .column-left-outer {
+width: 0;
+right: 100%;
+margin-left: -0;
+}
+.main-inner .column-right-outer {
+width: 250px;
+margin-right: -250px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<script type="text/javascript">var a="&m=1",d="(^|&)m=",e="?",f="?m=1";function g(){var b=window.location.href,c=b.split(e);switch(c.length){case 1:return b+f;case 2:return 0<=c[1].search(d)?null:b+a;default:return null}}var h=navigator.userAgent;if(-1!=h.indexOf("Mobile")&&-1!=h.indexOf("WebKit")&&-1==h.indexOf("iPad")||-1!=h.indexOf("Opera Mini")||-1!=h.indexOf("IEMobile")){var k=g();k&&window.location.replace(k)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/js/google_top_exp.js"></script><style>@-webkit-keyframes popzhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popzhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi-gear:hover{-webkit-animation-name:popzhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi !important;animation-name:popzhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi:hover #zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi-gear{text-decoration:none !important;display:inline-block !important;}@media print{#zhcxfvgwhcxruxwzffvgwhcxrwxdyxvfgvi{display:none !important;}}</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body class=" variant-dark">
+<div class="navbar section" id="navbar" name="Navbar"><div class="widget Navbar" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+          if (gapi.iframes && gapi.iframes.getContext) {
+            gapi.iframes.getContext().openChild({
+                url: 'https://www.blogger.com/navbar.g?targetBlogID\0756576681508814660796\46blogName\75Enterprise+Software+Doesn\47t+Have+to+Suck\46publishMode\75PUBLISH_MODE_HOSTED\46navbarType\75BLACK\46layoutType\75LAYOUTS\46searchRoot\75http://www.rcasts.com/search\46blogLocale\75en\46v\0752\46homepageUrl\75http://www.rcasts.com/\46targetPostID\0753543517264764139272\46blogPostOrPageUrl\75http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html\46vt\75-4056477405971506471',
+                where: document.getElementById("navbar-iframe-container"),
+                id: "navbar-iframe"
+            });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header" name="Header"><div class="widget Header" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://www.rcasts.com/">Enterprise Software Doesn't Have to Suck</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>A technologist's views on making enterprise software and software development fun and rewarding.</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol" name="Cross-Column"></div>
+<div class="tabs section" id="crosscol-overflow" name="Cross-Column 2"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main" name="Main"><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Dec 31, 2012</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="3543517264764139272"></a>
+<h3 class="post-title entry-title">
+Software engineer's guide to getting started with data science
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-3543517264764139272">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-FvaumXIPtQ0/UOENAsGZ_VI/AAAAAAAAAjc/yanGOg9kpjY/s1600/data+science+is+the+new+black.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="111" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/data+science+is+the+new+black.png" width="400"></a></div>
+Many of my software engineer friends ask me about learning data science. There are many articles on this subject&nbsp;from renowned data scientists&nbsp;(<a href="http://www.dataspora.com/2009/05/sexy-data-geeks/" target="_blank">Dataspora</a>,&nbsp;<a href="http://gigaom.com/data/why-becoming-a-data-scientist-might-be-easier-than-you-think" target="_blank">Gigaom</a>,&nbsp;<a href="http://www.quora.com/Career-Advice/How-do-I-become-a-data-scientist" target="_blank">Quora</a>, <a href="http://www.hilarymason.com/blog/getting-started-with-data-science/" target="_blank">Hilary Mason</a>). This post captures my journey (a software engineer) on&nbsp;learning Statistics and Data Visualization.<br>
+<div>
+<br></div>
+I'm mid-way in my 5 year journey to become&nbsp;<a href="http://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition" target="_blank">proficient</a>&nbsp;in data science and my learning program has included self-learning (books, blogs, toy problems),&nbsp;projects at work,&nbsp;class-room training (Stanford), teaching/presentations, conferences (UseR, Strata). Here's what I've done so far and what worked and what didn't...<br>
+<br>
+<hr>
+<br>
+<h3 style="text-align: left;">
+<b>1. GETTING STARTED</b></h3>
+<div style="text-align: left;">
+<h3 style="text-align: left;">
+<b><br></b></h3>
+<h3 style="text-align: left;">
+<b>a) Self-learning (2 - 4 months)</b></h3>
+</div>
+<div style="text-align: left;">
+<b><i>Explore if data science is for you</i></b></div>
+<br>
+This is the key to getting started. Two years ago some of us at work formed a study group to review&nbsp;<a href="http://stats202.com/" target="_blank">Stats 202</a>&nbsp;class material. This is what got me excited and started with data analytics. Only 2 of the 5 members of our study group chose to dive deeper into this field (<a href="http://analytical-solution.com/2012/11/05/data-science-is-not-for-everyone/" target="_blank">data science is not for everyone</a>).<br>
+<ul style="text-align: left;">
+<li><b>Learn basic statistics</b>:&nbsp;<a href="http://stats202.com/" target="_blank">Stats 202</a>&nbsp;coursework is perfect for this</li>
+<li><b>Learn a statistical tool</b>: I spent 3 months heads-down learning <a href="http://cran.r-project.org/" target="_blank">R</a> as a new-bee and had the most fun doing so. <a href="http://www.rcasts.com/2011/03/why-learn-r.html" target="_blank">Why learn R</a>?</li>
+<li><b>Solve toy problems</b>:&nbsp;Curiosity is key to data science. If you've questions about your country's economy, crime stats, sports performance, get the data and start answering your questions</li>
+<li><b>Learn Unix tools</b>:&nbsp;I picked <a href="http://shop.oreilly.com/product/9780596802363.do" target="_blank">O'Reilly's Data Analysis with Open Source Tools (A hands-on guide for programmers and data scientists)</a>&nbsp;book to read.</li>
+<li><b>Learn SQL and scripting languages</b>: I know Java, Ruby and SQL. Python is on my list.</li>
+</ul>
+<div>
+<br>
+There's a lot of training material&nbsp;available online<br>
+<ul>
+<li><a href="http://www.stanford.edu/class/stats202/" target="_blank">Stats 202</a></li>
+<li><a href="http://work.caltech.edu/telecourse.html" target="_blank">Caltech Data Science course</a></li>
+<li><a href="https://www.coursera.org/category/stats" target="_blank">Coursera</a>:&nbsp;<a href="https://www.coursera.org/course/datasci" target="_blank">Introduction to Data Science</a>,&nbsp;<a href="https://www.coursera.org/course/ml" target="_blank">Machine learning</a>,&nbsp;<a href="https://www.coursera.org/course/dataanalysis" target="_blank">Data Analysis</a>,&nbsp;<a href="https://www.coursera.org/course/compdata" target="_blank">Computing for Data Analysis</a></li>
+<li><a href="http://datascienc.es/" target="_blank">University of California Berkeley - Introduction to Data Science</a></li>
+<li><a href="http://open.journalismcourses.org/" target="_blank">Knight Center for Journalism's course on Introduction to Infographics and Data Visualization</a></li>
+<li>Stats 101:&nbsp;<a href="http://www.udacity.com/overview/Course/st101/CourseRev/1" target="_blank">Udacity (Intro to Stats)</a>,&nbsp;<a href="https://www.khanacademy.org/math/probability/statistics" target="_blank">Khan academy</a>,&nbsp;<a href="http://oli.cmu.edu/courses/free-open/statistics-course-details/" target="_blank">Carnegie Mellon's stats course</a></li>
+<li><a href="http://tryr.codeschool.com/" target="_blank">Learn R</a></li>
+</ul>
+<div>
+<br></div>
+</div>
+<h3 style="text-align: left;">
+<b>b) Class-room training (9 - 12 months)</b></h3>
+<b><i>If you're serious about learning, enroll into a formal program</i></b><br>
+<br>
+If you're serious about picking this skill, then opt for a course. The rigor of the class ensured that I didn't slack.&nbsp;Stanford offers great coursework to get started. They are far superior compared to many week-long training courses I've been to...<br>
+<ul style="text-align: left;">
+<li><a href="http://www.stanford.edu/class/stats202/" target="_blank">Data Mining and Analysis STATS202</a></li>
+<li><a href="http://www.stanford.edu/class/msande211/" target="_blank">Linear and Nonlinear Optimization MS&amp;E211</a></li>
+<li><a href="http://www.stanford.edu/class/cs246/" target="_blank">Mining Massive Data Sets CS246</a></li>
+<li><a href="http://www-stat.stanford.edu/~tibs/stat315a/" target="_blank">Modern Applied Statistics: Learning STATS315A</a></li>
+<li>Statistical Methods in Finance STATS240P</li>
+<li><a href="http://www.stanford.edu/class/stats315b/" target="_blank">Modern Applied Statistics: Data Mining&nbsp;STATS315B</a></li>
+</ul>
+<div>
+<h3 style="text-align: left;">
+</h3>
+</div>
+<div>
+<hr>
+<br>
+<br></div>
+<h3>
+<b>2. GETTING FOCUSED</b></h3>
+<h3 style="text-align: left;">
+<b><br></b></h3>
+<h3 style="text-align: left;">
+<b>a) Spend 100% of my time on data science</b></h3>
+<div style="text-align: left;">
+</div>
+<ul style="text-align: left;">
+<li>Once I was hooked on data science, it was difficult to spend only 20% of my time on it to build expertise. I needed to spend 100% of my time on it, so I found work problems related to data science (big data analysis, healthcare, marketing &amp; sales and retail analytics, optimization problems).&nbsp;</li>
+</ul>
+<h3 style="text-align: left;">
+<b><br></b></h3>
+<h3 style="text-align: left;">
+<b>b) Work on interesting problems</b></h3>
+<ul style="text-align: left;">
+<li>I aligned my learning goal with my passion. I found it energizing and engaging to solve interesting problems while learning new techniques. I was interested in retail, healthcare and sports (<a href="http://www.rcasts.com/search/label/cricket" target="_blank">cricket</a>) data analysis.&nbsp;</li>
+</ul>
+<h3 style="text-align: left;">
+<b><br></b></h3>
+<h3 style="text-align: left;">
+<b>c) Accelerate learning:&nbsp;</b></h3>
+<div>
+<ul style="text-align: left;">
+<li><b>Teach:&nbsp;</b>I <a href="http://www.rcasts.com/2010/11/learning-r.html" target="_blank">taught R</a> and <a href="http://www.rcasts.com/2012/03/data-analysis-training.html" target="_blank">data mining introductory classes</a> to colleagues and friends. This helped me reinforce my learning and get others excited on this topic. This is also a great way for me to give back to the open source community.&nbsp;Blogging is another medium to contribute and learn</li>
+<li><b>Follow the&nbsp;<b>leaders&nbsp;</b>in data science and n</b><b>etwork with data scientists</b>:&nbsp;<a href="http://www.linkedin.com/in/dpatil" target="_blank">DJ Patil</a>,&nbsp;<a href="http://www.hilarymason.com/" target="_blank">Hillary Mason</a>,&nbsp;<a href="http://jeffhammerbacher.com/" target="_blank">Jeff Hammerbacher</a>,&nbsp;<a href="http://analytical-solution.com/" target="_blank">Carla Gentry</a>,&nbsp;<a href="http://blog.linkedin.com/author/mrogati/" target="_blank">Monica Rogati</a>,&nbsp;<a href="http://mathbabe.org/" target="_blank">Cathy O'Neil</a>.&nbsp;There are many others in this space. Apologies for missing out many of them. These are the people I look up to.</li>
+<li><b>Follow interesting blogs</b>:&nbsp;<a href="http://datascience101.wordpress.com/">http://datascience101.wordpress.com</a>,&nbsp;<a href="http://columbiadatascience.com/blog">http://columbiadatascience.com/blog</a>,&nbsp;<a href="http://www.r-bloggers.com/">http://www.r-bloggers.com</a>,&nbsp;<a href="http://www.datawrangling.com/">http://www.datawrangling.com</a>,&nbsp;<a href="http://flowingdata.com/">http://flowingdata.com</a>&nbsp;(<a href="http://www.quora.com/What-are-the-best-blogs-about-data-Why" target="_blank">Quora's best data blog list</a>)</li>
+<li><b>Attend conferences/meetups periodically</b>:&nbsp;Local data science/R meetups,&nbsp;<a href="http://strata.oreilly.com/" target="_blank">O'Reilly Strata</a> is great! Given how rapidly this field is evolving, I go there at least every other year. <a href="http://www.r-project.org/conferences.html" target="_blank">UseR</a> is wonderful to see what's happening in the world of R</li>
+<li><b>Learn Big Data techniques</b>:&nbsp;MapReduce/Hadoop,&nbsp;Cloud computing. I avoided picking any commercial, vendor technology and in retrospect, it was a good decision.</li>
+</ul>
+<div>
+<br></div>
+<h3 style="text-align: left;">
+<b>d) Learn business domains</b></h3>
+</div>
+<div>
+I'm lucky to have access to internal and external experts in data science, and they've helped me understand their approach to data science problems (how they think, hypothesize and test/assess/reject solutions). I've learned from them the importance of "Hypothesis-driven data analysis" rather than "blind/brute-force data analysis". This highlighted the importance of understanding the business domains really well before trying to extract meaningful insights from the data. This led me to understand operations research and marketing topics, retail, travel &amp; logistics (revenue management) and healthcare industries. <a href="http://www.nytimes.com/2012/12/30/technology/big-data-is-great-but-dont-forget-intuition.html" target="_blank">NY Times recently published an article highlighting the need for intuition</a>.<br>
+<ul style="text-align: left;">
+</ul>
+<div>
+<br></div>
+<hr>
+<br>
+<br>
+<h3 style="text-align: left;">
+</h3>
+<h3 style="text-align: left;">
+3. DATA SCIENCE BOOKS I FOUND USEFUL</h3>
+<ul style="font-size: medium;">
+<li><a href="http://www.amazon.com/Introduction-Data-Mining-Pang-Ning-Tan/dp/0321321367" target="_blank">Introduction to Data Mining by Tan, Steinback and Kumar</a>&nbsp;This is the textbook used in many introductory data science courses, including Stats 202 at Stanford. Great guide to keep handy</li>
+<li style="font-weight: normal;"><a href="http://www.amazon.com/Nutshell-Desktop-Quick-Reference-OReilly/dp/059680170X" target="_blank">R in a nutshell</a></li>
+<li style="font-weight: normal;"><a href="http://www.amazon.com/Data-Analysis-Open-Source-Tools/dp/0596802358" target="_blank">Data Analysis by using Open Source tools</a></li>
+<li style="font-weight: normal;"><a href="http://www.amazon.com/Beautiful-Visualization-Looking-through-Practice/dp/1449379869" target="_blank">Beautiful visualization</a></li>
+<li style="font-weight: normal;">See more books on data science:&nbsp;<a href="http://shop.oreilly.com/category/get/data-science-kit.do" target="_blank">O'Reilly</a>,&nbsp;<a href="http://myemail.constantcontact.com/Data-Science-books-at-Manning.html?soid=1101335703814&aid=F6MCzlEavBM" target="_blank">Manning</a></li>
+</ul>
+<div>
+<br></div>
+<div style="text-align: left;">
+<hr>
+</div>
+<div style="text-align: left;">
+<br></div>
+<div style="text-align: left;">
+<br></div>
+<h3 style="text-align: left;">
+4. WHAT DIDN'T WORK FOR ME</h3>
+</div>
+<ul style="text-align: left;">
+<li><b>Learning multiple Statistical tools:&nbsp;</b>A year ago, I started getting some work requests for SAS programming, so I wanted to learn it. I tried to learn it for a month or so but could not do it. The main reason&nbsp;was learning inertia and my love for the statistical tool I knew already - R.&nbsp;I really didn't need another statistical tool. I could <a href="http://cran.r-project.org/web/views/" target="_blank">solve most of my data science problems with R</a> and other software tools I knew. So my advice is that if you already know SAS, Stata, Matlab, SPSS, Statistica very well, stick to it.&nbsp;However if you're learning a new statistical tool, pick R. R is open source while most others are&nbsp;commercial software (expensive and complex).</li>
+</ul>
+<ul style="text-align: left;">
+<li><b>Auditing courses:&nbsp;</b>I tried to follow self-paced coursework from Coursera and other <a href="http://en.wikipedia.org/wiki/Massive_open_online_course" target="_blank">MOOC</a>s but it wasn't effective for me. I needed the routine, the pressure of a formal course with proper grading to go through the rigor</li>
+</ul>
+<ul style="text-align: left;">
+<li><b>Increasing academic workload:&nbsp;</b>Manage work-life balance and work-commitments well. Earlier this year, I tried to take multiple difficult courses at the same time and quickly realized that I wasn't enjoying and learning as I should.</li>
+<li><b>Sticking to course text book only</b>: Many of the books in these classes are too "dense" for me (a software engineer). So I used other material to understand the concepts. E.g. regression from <a href="http://www.stat.cmu.edu/~roeder/stat707/lectures.pdf" target="_blank">Carnegie Mellon notes</a></li>
+</ul>
+<br>
+<hr>
+<br>
+Comments, questions, suggestions are welcome!</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-timestamp">
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1886333649">
+<a href="https://www.blogger.com/post-edit.g?blogID=6576681508814660796&postID=3543517264764139272&from=pencil" title="Edit Post">
+<img alt="" class="icon-action" height="18" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=6576681508814660796&postID=3543517264764139272&target=email" target="_blank" title="Email This"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=6576681508814660796&postID=3543517264764139272&target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=6576681508814660796&postID=3543517264764139272&target=twitter" target="_blank" title="Share to Twitter"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=6576681508814660796&postID=3543517264764139272&target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=6576681508814660796&postID=3543517264764139272&target=pinterest" target="_blank" title="Share to Pinterest"><span class="share-button-link-text">Share to Pinterest</span></a><div class="goog-inline-block google-plus-share-container"><g:plusone source="blogger:blog:plusone" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html" size="medium" width="300" annotation="inline" style="display: block;"><iframe style="width: 30px; height: 19px; border: 0px;"></iframe></g:plusone></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-labels">
+Tags:
+<a href="http://www.rcasts.com/search/label/data%20analysis" rel="tag">data analysis</a>,
+<a href="http://www.rcasts.com/search/label/R" rel="tag">R</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>37 comments:</h4>
+<div class="comments-content">
+<script async="async" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function() {
+      var items = [{'id': '7138430893286069635', 'body': 'VERY HELPFUL. THANKS. HOW ABOUT COLUMBIA UNIVERSITY\46#39;S COURSE?', 'timestamp': '1356964965157', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356964965157#c7138430893286069635', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-1956582814'}, {'id': '3095184811154720955', 'body': 'Columbia has a great program on data science. See the list of their coursework in Stats dept here -\46gt; http://statistics.columbia.edu/content/course-descriptions. Checkout the notes from their Intro to Data Science course here -\46gt; http://columbiadatascience.com.', 'timestamp': '1356965645561', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356965645561#c3095184811154720955', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '8667862066501377733', 'body': 'In fact, there are many \74a href\75\42http://mathbabe.org/2012/12/10/columbia-data-science-course-week-14-presentations/screen-shot-2012-12-10-at-11-04-57-am\42 rel\75\42nofollow\42\76US universities offering data science programs now\74/a\076', 'timestamp': '1356966313938', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356966313938#c8667862066501377733', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '2191307631067585431', 'body': 'Instead, I need a \46quot;Statistician\46#39;s guide to getting started with software engineering\46quot;.', 'timestamp': '1356970767784', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356970767784#c2191307631067585431', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-951471577'}, {'id': '7846385469669203199', 'parentId': '2191307631067585431', 'body': 'I\46#39;m in the same boat. I have the business acumen and stats background;just need to get more comfortable with SQL and Python to round out my programming skills. \74br /\76\74br /\76Fortunately, i think that most of these recommendations apply, with a heavier emphasis on the programming languages up-front. ', 'timestamp': '1356983186782', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356983186782#c7846385469669203199', 'author': {'name': 'Matt', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/15107171144063412588'}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-2031146944'}, {'id': '1790822570920285320', 'body': 'I\46#39;m hoping someone with Stats background can list their experience of picking up software engineering skills to serve as \46quot;Statistician\46#39;s guide to getting started with software engineering.\46quot; \74a href\75\42http://www.rcasts.com/2012/03/data-analysis-training.html\42 rel\75\42nofollow\42\76Here\46#39;s what I\46#39;ve taught my colleagues in the past for data science training\74/a\76. It might be helpful to review it. \74br /\76\74br /\76I\46#39;m teaching another batch in January 2013 in Mumbai and will post the curriculum and my notes soon. \74br /\076', 'timestamp': '1356985864465', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751356985864465#c1790822570920285320', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'December 31, 2012', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '6327399606764629522', 'body': 'Awaiting your post.', 'timestamp': '1360060114741', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751360060114741#c6327399606764629522', 'author': {'name': 'Kaizer', 'avatarUrl': 'http://2.bp.blogspot.com/_nmJgdlrCFRU/TB8EoknGMqI/AAAAAAAAEkE/mrJ4G_6k81Y/S45-s35/heic1008c.jpg', 'profileUrl': 'https://www.blogger.com/profile/11535368458602707312'}, 'displayTime': 'February 05, 2013', 'deleteclass': 'item-control blog-admin pid-1953182445'}, {'id': '8030535391218575580', 'body': 'Hi Kaizer, I will post the training agenda soon. The trip to Mumbai was productive and hectic. We identified 10 engineers from the batch of 20 to work with our team on data analysis. ', 'timestamp': '1361210957500', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751361210957500#c8030535391218575580', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'February 18, 2013', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '6596615297961756922', 'body': 'As I reflect on some books I\46#39;ve read, I realize that some stats books were too \46quot;dense\46quot; for me, a software engineer. The trick that worked for me was to look for alternative text. The book/text that I liked was often not the one suggested/listed by course professor. Often the course material/lecture notes on Carnegie Melon, MIT, Columbia courses are helpful. ', 'timestamp': '1361211107718', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751361211107718#c6596615297961756922', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'February 18, 2013', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '3682289153800771230', 'body': 'how could we access stanford class without an sunet id? Thanks', 'timestamp': '1362481417285', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751362481417285#c3682289153800771230', 'author': {'name': 'sas study', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/13494555392947175879'}, 'displayTime': 'March 05, 2013', 'deleteclass': 'item-control blog-admin pid-1041157115'}, {'id': '8997114930418570305', 'body': 'Thanks for all this great information. It is helping me develop my plan. I especially like the part about you finding problems at work that let you use your DS skills... I am doing that too :)', 'timestamp': '1363793844053', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751363793844053#c8997114930418570305', 'author': {'name': 'Lillian Pierson', 'avatarUrl': '//lh5.googleusercontent.com/-cbqt_SSRYa0/AAAAAAAAAAI/AAAAAAAACCk/QL-XXPEn058/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/10174155532602287042'}, 'displayTime': 'March 20, 2013', 'deleteclass': 'item-control blog-admin pid-1375958341'}, {'id': '1464943910010285233', 'body': 'Great helpful information. Thanks for sharing.', 'timestamp': '1363794878728', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751363794878728#c1464943910010285233', 'author': {'name': 'Gaurav Garg', 'avatarUrl': '//lh4.googleusercontent.com/-XgV6FOlaf-U/AAAAAAAAAAI/AAAAAAAAAA4/UpU9cja92pU/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/11953665462941192735'}, 'displayTime': 'March 20, 2013', 'deleteclass': 'item-control blog-admin pid-768307289'}, {'id': '3374729922021762597', 'body': '@sas study, I don\46#39;t think its possible to see Stanford class material without sunet id. However, many of the lecture notes and tests are available on course websites (public). ', 'timestamp': '1363864095956', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751363864095956#c3374729922021762597', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'March 21, 2013', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '305918216553276597', 'body': 'Thanks @Lillian and @Gaurav. Here\46#39;s a vendor offered course that I found helpful in the last few months -- Clourdera\46#39;s Hadoop developer, Pig/Hive training. ', 'timestamp': '1363864345164', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751363864345164#c305918216553276597', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'March 21, 2013', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '7848098472863200174', 'body': 'Good structured information. The sequence is truly helpful. Thanks for the post. Stanford is offering its STATS202 course as part of a resident summer session program (June-July-August). Now I am stuck between undertaking this class at Stanford Summer Session vs undertaking their online Data Mining \46amp; Applications certificate program. Can you provide some inputs on this? Thanks. ', 'timestamp': '1364717826291', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751364717826291#c7848098472863200174', 'author': {'name': 'Pronojit', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/16520157958726413699'}, 'displayTime': 'March 31, 2013', 'deleteclass': 'item-control blog-admin pid-240047607'}, {'id': '9220922447334118985', 'body': '@Pronojit, nothing like taking Stats 202 on the campus. Go for it! The interaction in the class and team projects will make it much more enriching. cheers!', 'timestamp': '1364767696787', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751364767696787#c9220922447334118985', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'March 31, 2013', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '1789127106319327766', 'parentId': '9220922447334118985', 'body': 'Thanks for that input. Apart from the STATS 202 what would be some of the good sources to dive deeper into Data Science in San Francisco area?', 'timestamp': '1364839498568', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751364839498568#c1789127106319327766', 'author': {'name': 'Pronojit', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/16520157958726413699'}, 'displayTime': 'April 01, 2013', 'deleteclass': 'item-control blog-admin pid-240047607'}, {'id': '2586433877800023096', 'body': 'Great information that has helped me plan my training program. When are you teaching next?', 'timestamp': '1378549397535', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751378549397535#c2586433877800023096', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'September 07, 2013', 'deleteclass': 'item-control blog-admin pid-813584112'}, {'id': '6488691352635032820', 'body': 'Thank you for all the information, very helpful. I was looking at this program at Stanford : Mining Massive Data Sets Graduate Certificate. Do you know if they offer any placement assistance after completing the program?  ', 'timestamp': '1391970993477', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751391970993477#c6488691352635032820', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'February 09, 2014', 'deleteclass': 'item-control blog-admin pid-959649259'}, {'id': '5917099908344909111', 'body': 'Stanford has multiple, effective ways to assist with placement. Best to call the graduate office to get this information.', 'timestamp': '1391991910602', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751391991910602#c5917099908344909111', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'February 09, 2014', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '4606501008338604216', 'body': 'thank u sir, I am 12 pass out, can u please tell me will b.sc in statistics help in becoming a data scientist?', 'timestamp': '1404023361782', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751404023361782#c4606501008338604216', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'June 29, 2014', 'deleteclass': 'item-control blog-admin pid-1857012501'}, {'id': '745163888691088712', 'body': 'I have no experience with coursework in B.Sc Stats, so very difficult to comment. Perhaps best to tailor your coursework to include key skills needed for data science - stats + computer science', 'timestamp': '1415534264580', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751415534264580#c745163888691088712', 'author': {'name': 'prasoonsharma', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/08307833695144399261'}, 'displayTime': 'November 09, 2014', 'deleteclass': 'item-control blog-admin pid-1886333649'}, {'id': '3591387618780474441', 'body': 'its training varies from kids instruction in that grown-ups \74a href\75\42http://www.grabessay.com/write-my-essay\42 rel\75\42nofollow\42\76grabessays.com\74/a\76 have aggregated learning and work experience which can add to the learning background. ', 'timestamp': '1421776373081', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751421776373081#c3591387618780474441', 'author': {'name': 'Sadia', 'avatarUrl': 'http://2.bp.blogspot.com/-b6SIRlSKjSM/UCMGN0n9UqI/AAAAAAAAAB4/LqHES_tpmUo/s35/545960_130136243787521_1643128944_n.jpg', 'profileUrl': 'https://www.blogger.com/profile/13452823552545627692'}, 'displayTime': 'January 20, 2015', 'deleteclass': 'item-control blog-admin pid-1981937265'}, {'id': '7283653901366746457', 'body': 'For the original trip entrance, they will be thinking about the fitness of the house, the way modern it\46#39;s, what exactly changes happen to be built to the idea, and also how big is it\46#39;s. Various other factors, just like metres, cellars . as well as swimming pools will even come into engage in. They are hunting at this time issue in addition to record with the property or home \74a href\75\42http://www.buycoursework.net/\42 rel\75\42nofollow\42\76order coursework\74/a\76 is best one and really awesome custom essay writing service providers.\74br /\076', 'timestamp': '1428982771030', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751428982771030#c7283653901366746457', 'author': {'name': 'Faria', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/03660040398464156874'}, 'displayTime': 'April 13, 2015', 'deleteclass': 'item-control blog-admin pid-392018009'}, {'id': '656569908296828482', 'body': 'Thank you so much for sharing this wonderful information. I find this very useful and informative. keep up this good work.\74br /\76\74br /\76\74a href\75\42http://www.sastraininginchennai.co.in/\42 rel\75\42nofollow\42\76SAS training chennai\74/a\076', 'timestamp': '1432970893270', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751432970893270#c656569908296828482', 'author': {'name': 'Steve Hawks', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/06396156372315045589'}, 'displayTime': 'May 30, 2015', 'deleteclass': 'item-control blog-admin pid-546319228'}, {'id': '8452618911675423445', 'body': 'My education is in math and statistics and it still comes easily to me.  My work has been as a software engineer for the last 30 years.  I fear that I would never be able to get work as a data scientist.  Things have changed so dramatically.', 'timestamp': '1435112488676', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751435112488676#c8452618911675423445', 'author': {'name': 'Anonymous', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'June 23, 2015', 'deleteclass': 'item-control blog-admin pid-1225194590'}, {'id': '1545992370395101615', 'body': 'Awesome article, I am a big fan of this website, keep on posting that great content, and I\46#39;ll be a regular visitor for a long time..\74a href\75\42http://bachataclassesinnortheastphiladelphia.weebly.com/\42 rel\75\42nofollow\42\76http://bachataclassesinnortheastphiladelphia.weebly.com/\74/a\076', 'timestamp': '1435562645381', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751435562645381#c1545992370395101615', 'author': {'name': 'Brenda Palmeri', 'avatarUrl': '//lh5.googleusercontent.com/-BK3eBK4ZuVQ/AAAAAAAAAAI/AAAAAAAAABU/Nv4uONXa-Zc/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/00413601920483928620'}, 'displayTime': 'June 29, 2015', 'deleteclass': 'item-control blog-admin pid-960248368'}, {'id': '3782907963582284017', 'body': 'Your article about software testing is awesome. It helped me to understand the career prospects in software testing industry. \74a href\75\42http://www.fita.in/software-testing-training-in-chennai/\42 rel\75\42nofollow\42\76software testing training in Chennai\74/a\076', 'timestamp': '1443424426708', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751443424426708#c3782907963582284017', 'author': {'name': 'robin singh', 'avatarUrl': '//lh3.googleusercontent.com/-t-Ym_4nGCyo/AAAAAAAAAAI/AAAAAAAAABM/dFqxtgHpCIc/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/01865984570147093622'}, 'displayTime': 'September 28, 2015', 'deleteclass': 'item-control blog-admin pid-640206096'}, {'id': '2319028146248238315', 'body': 'Hi, I will be like that the lot of new information.\74br /\76\74br /\76\74a href\75\42http://www.trainingintambaram.in/informatica-training-in-chennai.html\42 rel\75\42nofollow\42\76Informatica Training in Chennai\74/a\076', 'timestamp': '1444283181285', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751444283181285#c2319028146248238315', 'author': {'name': 'Informatica Training in Chennai', 'avatarUrl': 'https://img1.blogblog.com/img/blank.gif', 'profileUrl': 'http://www.trainingintambaram.in/informatica-training-in-chennai.html'}, 'displayTime': 'October 08, 2015', 'deleteclass': 'item-control blog-admin pid-1209018016'}, {'id': '482920335144723938', 'body': 'Thanks for your article. You have stated the most certain things about latest technologies. This would be very useful for my future career. This blog has awesome contents to read. Looking forward for more articles like this. Thanks for sharing.\74br /\76\74br /\76\74a href\75\42http://www.fitaacademy.com/courses/software-testing-training-in-chennai/\42 rel\75\42nofollow\42\76Testing training in chennai\74/a\76 | \74a href\75\42http://www.fitaacademy.com/courses/salesforce-training-in-chennai/\42 rel\75\42nofollow\42\76Salesforce training in chennai\74/a\76 | \74a href\75\42http://www.fitaacademy.com/courses/java-j2ee-training-in-chennai/\42 rel\75\42nofollow\42\76JAVA Training in Chennai\74/a\76 | \74a href\75\42http://www.salesforcetraininginchennai.net/\42 rel\75\42nofollow\42\76Salesforce Training in Chennai\74/a\76\74br /\076', 'timestamp': '1445938061038', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751445938061038#c482920335144723938', 'author': {'name': 'Jhon Abraham', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/01872654017775593189'}, 'displayTime': 'October 27, 2015', 'deleteclass': 'item-control blog-admin pid-85481020'}, {'id': '3238099855867719970', 'body': 'Thank you for the informative post. It was thoroughly helpful to me. Keep posting more such articles on \74a href\75\42http://www.softwaretestingtraininginchennai.net/\42 rel\75\42nofollow\42\76software testing training institute in Chennai\74/a\76 and enlighten us.', 'timestamp': '1446036745507', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751446036745507#c3238099855867719970', 'author': {'name': 'Rahul', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/11428449970397557798'}, 'displayTime': 'October 28, 2015', 'deleteclass': 'item-control blog-admin pid-879721828'}, {'id': '4751292793914484241', 'body': 'Thanks for sharing such informative article on Loadrunner Automation testing tool. This load testing tool will provide most precise information about the quality of software. \74a href\75\42http://www.fita.in/loadrunner-training-in-chennai/\42 rel\75\42nofollow\42\76Loadrunner Course in Chennai\74/a\76 | \74a href\75\42http://www.fita.in/loadrunner-training-in-chennai/\42 rel\75\42nofollow\42\76Loadrunner training institute in Chennai\74/a\076', 'timestamp': '1446293625496', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751446293625496#c4751292793914484241', 'author': {'name': 'kovalan Jayamurugan', 'avatarUrl': '//lh4.googleusercontent.com/-Tycg_V-ygXE/AAAAAAAAAAI/AAAAAAAAAEM/PoFBrvDHdZg/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/04465557019830008004'}, 'displayTime': 'October 31, 2015', 'deleteclass': 'item-control blog-admin pid-175533223'}, {'id': '8774793579952399409', 'body': 'I agree with your post, the Introduction of automation testing product shortens the development life cycle. It helps the software developers and programmers to validate software application performance and behavior before deployment. You can choose testing product based on your testing requirements and functionality. \74a href\75\42http://www.fita.in/qtp-training-in-chennai/\42 rel\75\42nofollow\42\76QTP Course in Chennai\74/a\76 | \74a href\75\42http://www.fita.in/qtp-training-in-chennai/\42 rel\75\42nofollow\42\76QTP training\74/a\076', 'timestamp': '1446711970462', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751446711970462#c8774793579952399409', 'author': {'name': 'murali karthik', 'avatarUrl': '//lh6.googleusercontent.com/-7Kanhhc-ptI/AAAAAAAAAAI/AAAAAAAAABM/Mw8WlYEsq6U/s35-c/photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/03540258845375861414'}, 'displayTime': 'November 05, 2015', 'deleteclass': 'item-control blog-admin pid-908326521'}, {'id': '1482761429757739500', 'body': 'Thanks for sharing those useful basic programming links, it helps me to explore my knowledge in programming...if you want to switch your career in developing area you should know the basic of programming&#8217;s for that you have to read python because it was the first programming language for more details contact the link.\74br /\76Regards,\74br /\76\74a href\75\42http://www.joinfita.com/courses/python-training-in-chennai/\42 rel\75\42nofollow\42\76Python Training in Chennai\74/a\76|\74a href\75\42http://www.joinfita.com/courses/python-training-in-chennai/\42 rel\75\42nofollow\42\76Python Training\74/a\76|\74a href\75\42http://www.joinfita.com/courses/python-training-in-chennai/\42 rel\75\42nofollow\42\76Python Training Institutes in Chennai\74/a\076', 'timestamp': '1447242041908', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751447242041908#c1482761429757739500', 'author': {'name': 'Melisa', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/05919953377900066580'}, 'displayTime': 'November 11, 2015', 'deleteclass': 'item-control blog-admin pid-81525902'}, {'id': '3274373446074616052', 'body': ' This is the key to getting started. Two years ago some of us at work formed a study group to review Stats 202 class material. This is what got me excited and started with data analytics. Only 2 of the 5 members of our study group chose to dive deeper into this field (data science is not for everyone).\74a href\75\42http://orhanergun.net/\42 rel\75\42nofollow\42\76ccde written\74/a\076', 'timestamp': '1447935932820', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751447935932820#c3274373446074616052', 'author': {'name': 'Richard C. Lambert', 'avatarUrl': 'http://2.bp.blogspot.com/-h4GMzBS8Kss/VVwakSPOmdI/AAAAAAAAAA0/ZZ6uXm0ThRg/s35/Richard-Lambert-Photo.jpg', 'profileUrl': 'https://www.blogger.com/profile/14766504022599651016'}, 'displayTime': 'November 19, 2015', 'deleteclass': 'item-control blog-admin pid-1580462501'}, {'id': '3065545627437140611', 'body': 'Testing is the only way to deliver reliable products in the Information Technology market. Articles like this are vital in improvising one\46#39;s ability as a software testing professional. Thank you so much for sharing this information in here. Keep blogging.\74br /\76\74br /\76\74a href\75\42http://www.fitaacademy.com/courses/software-testing-training-in-chennai/\42 rel\75\42nofollow\42\76Software testing training in chennai\74/a\76 | \74a href\75\42http://www.fitaacademy.com/courses/software-testing-training-in-chennai/\42 rel\75\42nofollow\42\76Automation testing courses in chennai\74/a\76 | \74a href\75\42http://www.fitaacademy.com/courses/software-testing-training-in-chennai/\42 rel\75\42nofollow\42\76Software testing institute in chennai\74/a\76\74br /\076', 'timestamp': '1448343700182', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751448343700182#c3065545627437140611', 'author': {'name': 'Stephen', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/12481760346246200254'}, 'displayTime': 'November 24, 2015', 'deleteclass': 'item-control blog-admin pid-125158823'}, {'id': '6931048430356223807', 'body': 'Automation will make any work to be completed so soon(\74a href\75\42http://www.fitaacademy.com/courses/selenium-training-in-chennai/\42 rel\75\42nofollow\42\76Selenium training in chennai\74/a\76), in addition to this recording the actions is possible with automated tool. Your content explicitely states the same(\74a href\75\42http://www.fitaacademy.com/courses/selenium-training-in-chennai/\42 rel\75\42nofollow\42\76Selenium testing course in chennai\74/a\76). Thanks for sharing this worth able content in here. This was very useful to me as well. Keep blogging like this(\74a href\75\42http://www.fitaacademy.com/courses/selenium-training-in-chennai/\42 rel\75\42nofollow\42\76Selenium training institutes in chennai\74/a\76).', 'timestamp': '1448615041340', 'permalink': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment\0751448615041340#c6931048430356223807', 'author': {'name': 'Arthur Mac', 'avatarUrl': 'https://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'https://www.blogger.com/profile/13288997936733232050'}, 'displayTime': 'November 27, 2015', 'deleteclass': 'item-control blog-admin pid-2144218067'}];
+      var msgs = {'loadMore': 'Load more...', 'loading': 'Loading...', 'loaded': 'No more!', 'addComment': 'Add comment', 'reply': 'Reply', 'delete': 'Delete'};
+      var config = {'blogId': '6576681508814660796', 'postId': '3543517264764139272', 'feed': 'http://www.rcasts.com/feeds/3543517264764139272/comments/default', 'authorName': 'prasoonsharma', 'authorUrl': 'https://www.blogger.com/profile/08307833695144399261', 'baseUri': 'https://www.blogger.com', 'maxThreadDepth': 2};
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+            }
+          }
+        }
+        return entry.content.$t;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+</script>
+<div id="comment-holder">
+
+<div id="bc_0_38C" kind="c"><div id="bc_0_38CT"><div id="bc_0_37T" class="comment-thread" kind="r" t="0" u="0"><ol id="bc_0_37TB"><li id="bc_0_0B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c7138430893286069635" class="comment-block"><div id="bc_0_0M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356964965157#c7138430893286069635">December 31, 2012</a></span></div><p id="bc_0_0MC" class="comment-content">VERY HELPFUL. THANKS. HOW ABOUT COLUMBIA UNIVERSITY'S COURSE?</p><span id="bc_0_0MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1956582814"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=7138430893286069635">Delete</a></span></span></div><div id="bc_0_0BR" class="comment-replies"></div><div id="bc_0_0B_box" class="comment-replybox-single"></div></li><li id="bc_0_1B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c3095184811154720955" class="comment-block"><div id="bc_0_1M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356965645561#c3095184811154720955">December 31, 2012</a></span></div><p id="bc_0_1MC" class="comment-content">Columbia has a great program on data science. See the list of their coursework in Stats dept here -&gt; http://statistics.columbia.edu/content/course-descriptions. Checkout the notes from their Intro to Data Science course here -&gt; http://columbiadatascience.com.</p><span id="bc_0_1MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3095184811154720955">Delete</a></span></span></div><div id="bc_0_1BR" class="comment-replies"></div><div id="bc_0_1B_box" class="comment-replybox-single"></div></li><li id="bc_0_2B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c8667862066501377733" class="comment-block"><div id="bc_0_2M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356966313938#c8667862066501377733">December 31, 2012</a></span></div><p id="bc_0_2MC" class="comment-content">In fact, there are many <a href="http://mathbabe.org/2012/12/10/columbia-data-science-course-week-14-presentations/screen-shot-2012-12-10-at-11-04-57-am" rel="nofollow">US universities offering data science programs now</a></p><span id="bc_0_2MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=8667862066501377733">Delete</a></span></span></div><div id="bc_0_2BR" class="comment-replies"></div><div id="bc_0_2B_box" class="comment-replybox-single"></div></li><li id="bc_0_4B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c2191307631067585431" class="comment-block"><div id="bc_0_4M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356970767784#c2191307631067585431">December 31, 2012</a></span></div><p id="bc_0_4MC" class="comment-content">Instead, I need a "Statistician's guide to getting started with software engineering".</p><span id="bc_0_4MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-951471577"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=2191307631067585431">Delete</a></span></span></div><div id="bc_0_4BR" class="comment-replies"><span id="bc_0_4b+seedt32D" kind="d"><div id="bc_0_3T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_3TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_3TA" class="thread-arrow"></span><span id="bc_0_3TN" class="thread-count"><span id="bc_0_3TNT" style="display: none;"></span><span id="bc_0_3TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_3TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_3TC" class="thread-chrome thread-expanded"><div><li id="bc_0_3B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c7846385469669203199" class="comment-block"><div id="bc_0_3M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/15107171144063412588">Matt</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356983186782#c7846385469669203199">December 31, 2012</a></span></div><p id="bc_0_3MC" class="comment-content">I'm in the same boat. I have the business acumen and stats background;just need to get more comfortable with SQL and Python to round out my programming skills. <br><br>Fortunately, i think that most of these recommendations apply, with a heavier emphasis on the programming languages up-front. </p><span id="bc_0_3MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-2031146944"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=7846385469669203199">Delete</a></span></span></div><div id="bc_0_3BR" class="comment-replies"></div><div id="bc_0_3B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_3I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_3T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_4B_box" class="comment-replybox-single"></div></li><li id="bc_0_5B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c1790822570920285320" class="comment-block"><div id="bc_0_5M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1356985864465#c1790822570920285320">December 31, 2012</a></span></div><p id="bc_0_5MC" class="comment-content">I'm hoping someone with Stats background can list their experience of picking up software engineering skills to serve as "Statistician's guide to getting started with software engineering." <a href="http://www.rcasts.com/2012/03/data-analysis-training.html" rel="nofollow">Here's what I've taught my colleagues in the past for data science training</a>. It might be helpful to review it. <br><br>I'm teaching another batch in January 2013 in Mumbai and will post the curriculum and my notes soon. <br></p><span id="bc_0_5MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=1790822570920285320">Delete</a></span></span></div><div id="bc_0_5BR" class="comment-replies"></div><div id="bc_0_5B_box" class="comment-replybox-single"></div></li><li id="bc_0_6B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/heic1008c.jpg"></div><div id="c6327399606764629522" class="comment-block"><div id="bc_0_6M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/11535368458602707312">Kaizer</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1360060114741#c6327399606764629522">February 05, 2013</a></span></div><p id="bc_0_6MC" class="comment-content">Awaiting your post.</p><span id="bc_0_6MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1953182445"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=6327399606764629522">Delete</a></span></span></div><div id="bc_0_6BR" class="comment-replies"></div><div id="bc_0_6B_box" class="comment-replybox-single"></div></li><li id="bc_0_7B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c8030535391218575580" class="comment-block"><div id="bc_0_7M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1361210957500#c8030535391218575580">February 18, 2013</a></span></div><p id="bc_0_7MC" class="comment-content">Hi Kaizer, I will post the training agenda soon. The trip to Mumbai was productive and hectic. We identified 10 engineers from the batch of 20 to work with our team on data analysis. </p><span id="bc_0_7MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=8030535391218575580">Delete</a></span></span></div><div id="bc_0_7BR" class="comment-replies"></div><div id="bc_0_7B_box" class="comment-replybox-single"></div></li><li id="bc_0_8B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c6596615297961756922" class="comment-block"><div id="bc_0_8M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1361211107718#c6596615297961756922">February 18, 2013</a></span></div><p id="bc_0_8MC" class="comment-content">As I reflect on some books I've read, I realize that some stats books were too "dense" for me, a software engineer. The trick that worked for me was to look for alternative text. The book/text that I liked was often not the one suggested/listed by course professor. Often the course material/lecture notes on Carnegie Melon, MIT, Columbia courses are helpful. </p><span id="bc_0_8MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=6596615297961756922">Delete</a></span></span></div><div id="bc_0_8BR" class="comment-replies"></div><div id="bc_0_8B_box" class="comment-replybox-single"></div></li><li id="bc_0_9B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c3682289153800771230" class="comment-block"><div id="bc_0_9M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/13494555392947175879">sas study</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1362481417285#c3682289153800771230">March 05, 2013</a></span></div><p id="bc_0_9MC" class="comment-content">how could we access stanford class without an sunet id? Thanks</p><span id="bc_0_9MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1041157115"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3682289153800771230">Delete</a></span></span></div><div id="bc_0_9BR" class="comment-replies"></div><div id="bc_0_9B_box" class="comment-replybox-single"></div></li><li id="bc_0_10B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo.jpg"></div><div id="c8997114930418570305" class="comment-block"><div id="bc_0_10M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/10174155532602287042">Lillian Pierson</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1363793844053#c8997114930418570305">March 20, 2013</a></span></div><p id="bc_0_10MC" class="comment-content">Thanks for all this great information. It is helping me develop my plan. I especially like the part about you finding problems at work that let you use your DS skills... I am doing that too :)</p><span id="bc_0_10MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1375958341"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=8997114930418570305">Delete</a></span></span></div><div id="bc_0_10BR" class="comment-replies"></div><div id="bc_0_10B_box" class="comment-replybox-single"></div></li><li id="bc_0_11B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo(1).jpg"></div><div id="c1464943910010285233" class="comment-block"><div id="bc_0_11M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/11953665462941192735">Gaurav Garg</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1363794878728#c1464943910010285233">March 20, 2013</a></span></div><p id="bc_0_11MC" class="comment-content">Great helpful information. Thanks for sharing.</p><span id="bc_0_11MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-768307289"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=1464943910010285233">Delete</a></span></span></div><div id="bc_0_11BR" class="comment-replies"></div><div id="bc_0_11B_box" class="comment-replybox-single"></div></li><li id="bc_0_12B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c3374729922021762597" class="comment-block"><div id="bc_0_12M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1363864095956#c3374729922021762597">March 21, 2013</a></span></div><p id="bc_0_12MC" class="comment-content">@sas study, I don't think its possible to see Stanford class material without sunet id. However, many of the lecture notes and tests are available on course websites (public). </p><span id="bc_0_12MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3374729922021762597">Delete</a></span></span></div><div id="bc_0_12BR" class="comment-replies"></div><div id="bc_0_12B_box" class="comment-replybox-single"></div></li><li id="bc_0_13B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c305918216553276597" class="comment-block"><div id="bc_0_13M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1363864345164#c305918216553276597">March 21, 2013</a></span></div><p id="bc_0_13MC" class="comment-content">Thanks @Lillian and @Gaurav. Here's a vendor offered course that I found helpful in the last few months -- Clourdera's Hadoop developer, Pig/Hive training. </p><span id="bc_0_13MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=305918216553276597">Delete</a></span></span></div><div id="bc_0_13BR" class="comment-replies"></div><div id="bc_0_13B_box" class="comment-replybox-single"></div></li><li id="bc_0_14B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c7848098472863200174" class="comment-block"><div id="bc_0_14M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/16520157958726413699">Pronojit</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1364717826291#c7848098472863200174">March 31, 2013</a></span></div><p id="bc_0_14MC" class="comment-content">Good structured information. The sequence is truly helpful. Thanks for the post. Stanford is offering its STATS202 course as part of a resident summer session program (June-July-August). Now I am stuck between undertaking this class at Stanford Summer Session vs undertaking their online Data Mining &amp; Applications certificate program. Can you provide some inputs on this? Thanks. </p><span id="bc_0_14MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-240047607"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=7848098472863200174">Delete</a></span></span></div><div id="bc_0_14BR" class="comment-replies"></div><div id="bc_0_14B_box" class="comment-replybox-single"></div></li><li id="bc_0_16B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c9220922447334118985" class="comment-block"><div id="bc_0_16M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1364767696787#c9220922447334118985">March 31, 2013</a></span></div><p id="bc_0_16MC" class="comment-content">@Pronojit, nothing like taking Stats 202 on the campus. Go for it! The interaction in the class and team projects will make it much more enriching. cheers!</p><span id="bc_0_16MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=9220922447334118985">Delete</a></span></span></div><div id="bc_0_16BR" class="comment-replies"><span id="bc_0_16b+seedt4CD" kind="d"><div id="bc_0_15T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_15TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_15TA" class="thread-arrow"></span><span id="bc_0_15TN" class="thread-count"><span id="bc_0_15TNT" style="display: none;"></span><span id="bc_0_15TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_15TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_15TC" class="thread-chrome thread-expanded"><div><li id="bc_0_15B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c1789127106319327766" class="comment-block"><div id="bc_0_15M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/16520157958726413699">Pronojit</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1364839498568#c1789127106319327766">April 01, 2013</a></span></div><p id="bc_0_15MC" class="comment-content">Thanks for that input. Apart from the STATS 202 what would be some of the good sources to dive deeper into Data Science in San Francisco area?</p><span id="bc_0_15MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-240047607"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=1789127106319327766">Delete</a></span></span></div><div id="bc_0_15BR" class="comment-replies"></div><div id="bc_0_15B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_15I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_15T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_16B_box" class="comment-replybox-single"></div></li><li id="bc_0_17B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c2586433877800023096" class="comment-block"><div id="bc_0_17M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1378549397535#c2586433877800023096">September 07, 2013</a></span></div><p id="bc_0_17MC" class="comment-content">Great information that has helped me plan my training program. When are you teaching next?</p><span id="bc_0_17MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-813584112"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=2586433877800023096">Delete</a></span></span></div><div id="bc_0_17BR" class="comment-replies"></div><div id="bc_0_17B_box" class="comment-replybox-single"></div></li><li id="bc_0_18B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c6488691352635032820" class="comment-block"><div id="bc_0_18M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1391970993477#c6488691352635032820">February 09, 2014</a></span></div><p id="bc_0_18MC" class="comment-content">Thank you for all the information, very helpful. I was looking at this program at Stanford : Mining Massive Data Sets Graduate Certificate. Do you know if they offer any placement assistance after completing the program?  </p><span id="bc_0_18MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-959649259"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=6488691352635032820">Delete</a></span></span></div><div id="bc_0_18BR" class="comment-replies"></div><div id="bc_0_18B_box" class="comment-replybox-single"></div></li><li id="bc_0_19B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c5917099908344909111" class="comment-block"><div id="bc_0_19M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1391991910602#c5917099908344909111">February 09, 2014</a></span></div><p id="bc_0_19MC" class="comment-content">Stanford has multiple, effective ways to assist with placement. Best to call the graduate office to get this information.</p><span id="bc_0_19MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=5917099908344909111">Delete</a></span></span></div><div id="bc_0_19BR" class="comment-replies"></div><div id="bc_0_19B_box" class="comment-replybox-single"></div></li><li id="bc_0_20B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c4606501008338604216" class="comment-block"><div id="bc_0_20M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1404023361782#c4606501008338604216">June 29, 2014</a></span></div><p id="bc_0_20MC" class="comment-content">thank u sir, I am 12 pass out, can u please tell me will b.sc in statistics help in becoming a data scientist?</p><span id="bc_0_20MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1857012501"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=4606501008338604216">Delete</a></span></span></div><div id="bc_0_20BR" class="comment-replies"></div><div id="bc_0_20B_box" class="comment-replybox-single"></div></li><li id="bc_0_21B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c745163888691088712" class="comment-block"><div id="bc_0_21M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="https://www.blogger.com/profile/08307833695144399261">prasoonsharma</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1415534264580#c745163888691088712">November 09, 2014</a></span></div><p id="bc_0_21MC" class="comment-content">I have no experience with coursework in B.Sc Stats, so very difficult to comment. Perhaps best to tailor your coursework to include key skills needed for data science - stats + computer science</p><span id="bc_0_21MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1886333649"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=745163888691088712">Delete</a></span></span></div><div id="bc_0_21BR" class="comment-replies"></div><div id="bc_0_21B_box" class="comment-replybox-single"></div></li><li id="bc_0_22B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/545960_130136243787521_1643128944_n.jpg"></div><div id="c3591387618780474441" class="comment-block"><div id="bc_0_22M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/13452823552545627692">Sadia</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1421776373081#c3591387618780474441">January 20, 2015</a></span></div><p id="bc_0_22MC" class="comment-content">its training varies from kids instruction in that grown-ups <a href="http://www.grabessay.com/write-my-essay" rel="nofollow">grabessays.com</a> have aggregated learning and work experience which can add to the learning background. </p><span id="bc_0_22MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1981937265"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3591387618780474441">Delete</a></span></span></div><div id="bc_0_22BR" class="comment-replies"></div><div id="bc_0_22B_box" class="comment-replybox-single"></div></li><li id="bc_0_23B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c7283653901366746457" class="comment-block"><div id="bc_0_23M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/03660040398464156874">Faria</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1428982771030#c7283653901366746457">April 13, 2015</a></span></div><p id="bc_0_23MC" class="comment-content">For the original trip entrance, they will be thinking about the fitness of the house, the way modern it's, what exactly changes happen to be built to the idea, and also how big is it's. Various other factors, just like metres, cellars . as well as swimming pools will even come into engage in. They are hunting at this time issue in addition to record with the property or home <a href="http://www.buycoursework.net/" rel="nofollow">order coursework</a> is best one and really awesome custom essay writing service providers.<br></p><span id="bc_0_23MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-392018009"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=7283653901366746457">Delete</a></span></span></div><div id="bc_0_23BR" class="comment-replies"></div><div id="bc_0_23B_box" class="comment-replybox-single"></div></li><li id="bc_0_24B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c656569908296828482" class="comment-block"><div id="bc_0_24M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/06396156372315045589">Steve Hawks</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1432970893270#c656569908296828482">May 30, 2015</a></span></div><p id="bc_0_24MC" class="comment-content">Thank you so much for sharing this wonderful information. I find this very useful and informative. keep up this good work.<br><br><a href="http://www.sastraininginchennai.co.in/" rel="nofollow">SAS training chennai</a></p><span id="bc_0_24MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-546319228"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=656569908296828482">Delete</a></span></span></div><div id="bc_0_24BR" class="comment-replies"></div><div id="bc_0_24B_box" class="comment-replybox-single"></div></li><li id="bc_0_25B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c8452618911675423445" class="comment-block"><div id="bc_0_25M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1435112488676#c8452618911675423445">June 23, 2015</a></span></div><p id="bc_0_25MC" class="comment-content">My education is in math and statistics and it still comes easily to me.  My work has been as a software engineer for the last 30 years.  I fear that I would never be able to get work as a data scientist.  Things have changed so dramatically.</p><span id="bc_0_25MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1225194590"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=8452618911675423445">Delete</a></span></span></div><div id="bc_0_25BR" class="comment-replies"></div><div id="bc_0_25B_box" class="comment-replybox-single"></div></li><li id="bc_0_26B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo(2).jpg"></div><div id="c1545992370395101615" class="comment-block"><div id="bc_0_26M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/00413601920483928620">Brenda Palmeri</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1435562645381#c1545992370395101615">June 29, 2015</a></span></div><p id="bc_0_26MC" class="comment-content">Awesome article, I am a big fan of this website, keep on posting that great content, and I'll be a regular visitor for a long time..<a href="http://bachataclassesinnortheastphiladelphia.weebly.com/" rel="nofollow">http://bachataclassesinnortheastphiladelphia.weebly.com/</a></p><span id="bc_0_26MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-960248368"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=1545992370395101615">Delete</a></span></span></div><div id="bc_0_26BR" class="comment-replies"></div><div id="bc_0_26B_box" class="comment-replybox-single"></div></li><li id="bc_0_27B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo(3).jpg"></div><div id="c3782907963582284017" class="comment-block"><div id="bc_0_27M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/01865984570147093622">robin singh</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1443424426708#c3782907963582284017">September 28, 2015</a></span></div><p id="bc_0_27MC" class="comment-content">Your article about software testing is awesome. It helped me to understand the career prospects in software testing industry. <a href="http://www.fita.in/software-testing-training-in-chennai/" rel="nofollow">software testing training in Chennai</a></p><span id="bc_0_27MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-640206096"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3782907963582284017">Delete</a></span></span></div><div id="bc_0_27BR" class="comment-replies"></div><div id="bc_0_27B_box" class="comment-replybox-single"></div></li><li id="bc_0_28B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/anon36.png"></div><div id="c2319028146248238315" class="comment-block"><div id="bc_0_28M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.trainingintambaram.in/informatica-training-in-chennai.html">Informatica Training in Chennai</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1444283181285#c2319028146248238315">October 08, 2015</a></span></div><p id="bc_0_28MC" class="comment-content">Hi, I will be like that the lot of new information.<br><br><a href="http://www.trainingintambaram.in/informatica-training-in-chennai.html" rel="nofollow">Informatica Training in Chennai</a></p><span id="bc_0_28MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1209018016"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=2319028146248238315">Delete</a></span></span></div><div id="bc_0_28BR" class="comment-replies"></div><div id="bc_0_28B_box" class="comment-replybox-single"></div></li><li id="bc_0_29B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c482920335144723938" class="comment-block"><div id="bc_0_29M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/01872654017775593189">Jhon Abraham</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1445938061038#c482920335144723938">October 27, 2015</a></span></div><p id="bc_0_29MC" class="comment-content">Thanks for your article. You have stated the most certain things about latest technologies. This would be very useful for my future career. This blog has awesome contents to read. Looking forward for more articles like this. Thanks for sharing.<br><br><a href="http://www.fitaacademy.com/courses/software-testing-training-in-chennai/" rel="nofollow">Testing training in chennai</a> | <a href="http://www.fitaacademy.com/courses/salesforce-training-in-chennai/" rel="nofollow">Salesforce training in chennai</a> | <a href="http://www.fitaacademy.com/courses/java-j2ee-training-in-chennai/" rel="nofollow">JAVA Training in Chennai</a> | <a href="http://www.salesforcetraininginchennai.net/" rel="nofollow">Salesforce Training in Chennai</a><br></p><span id="bc_0_29MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-85481020"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=482920335144723938">Delete</a></span></span></div><div id="bc_0_29BR" class="comment-replies"></div><div id="bc_0_29B_box" class="comment-replybox-single"></div></li><li id="bc_0_30B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c3238099855867719970" class="comment-block"><div id="bc_0_30M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/11428449970397557798">Rahul</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1446036745507#c3238099855867719970">October 28, 2015</a></span></div><p id="bc_0_30MC" class="comment-content">Thank you for the informative post. It was thoroughly helpful to me. Keep posting more such articles on <a href="http://www.softwaretestingtraininginchennai.net/" rel="nofollow">software testing training institute in Chennai</a> and enlighten us.</p><span id="bc_0_30MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-879721828"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3238099855867719970">Delete</a></span></span></div><div id="bc_0_30BR" class="comment-replies"></div><div id="bc_0_30B_box" class="comment-replybox-single"></div></li><li id="bc_0_31B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo(4).jpg"></div><div id="c4751292793914484241" class="comment-block"><div id="bc_0_31M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/04465557019830008004">kovalan Jayamurugan</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1446293625496#c4751292793914484241">October 31, 2015</a></span></div><p id="bc_0_31MC" class="comment-content">Thanks for sharing such informative article on Loadrunner Automation testing tool. This load testing tool will provide most precise information about the quality of software. <a href="http://www.fita.in/loadrunner-training-in-chennai/" rel="nofollow">Loadrunner Course in Chennai</a> | <a href="http://www.fita.in/loadrunner-training-in-chennai/" rel="nofollow">Loadrunner training institute in Chennai</a></p><span id="bc_0_31MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-175533223"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=4751292793914484241">Delete</a></span></span></div><div id="bc_0_31BR" class="comment-replies"></div><div id="bc_0_31B_box" class="comment-replybox-single"></div></li><li id="bc_0_32B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/photo(5).jpg"></div><div id="c8774793579952399409" class="comment-block"><div id="bc_0_32M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/03540258845375861414">murali karthik</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1446711970462#c8774793579952399409">November 05, 2015</a></span></div><p id="bc_0_32MC" class="comment-content">I agree with your post, the Introduction of automation testing product shortens the development life cycle. It helps the software developers and programmers to validate software application performance and behavior before deployment. You can choose testing product based on your testing requirements and functionality. <a href="http://www.fita.in/qtp-training-in-chennai/" rel="nofollow">QTP Course in Chennai</a> | <a href="http://www.fita.in/qtp-training-in-chennai/" rel="nofollow">QTP training</a></p><span id="bc_0_32MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-908326521"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=8774793579952399409">Delete</a></span></span></div><div id="bc_0_32BR" class="comment-replies"></div><div id="bc_0_32B_box" class="comment-replybox-single"></div></li><li id="bc_0_33B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c1482761429757739500" class="comment-block"><div id="bc_0_33M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/05919953377900066580">Melisa</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1447242041908#c1482761429757739500">November 11, 2015</a></span></div><p id="bc_0_33MC" class="comment-content">Thanks for sharing those useful basic programming links, it helps me to explore my knowledge in programming...if you want to switch your career in developing area you should know the basic of programming’s for that you have to read python because it was the first programming language for more details contact the link.<br>Regards,<br><a href="http://www.joinfita.com/courses/python-training-in-chennai/" rel="nofollow">Python Training in Chennai</a>|<a href="http://www.joinfita.com/courses/python-training-in-chennai/" rel="nofollow">Python Training</a>|<a href="http://www.joinfita.com/courses/python-training-in-chennai/" rel="nofollow">Python Training Institutes in Chennai</a></p><span id="bc_0_33MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-81525902"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=1482761429757739500">Delete</a></span></span></div><div id="bc_0_33BR" class="comment-replies"></div><div id="bc_0_33B_box" class="comment-replybox-single"></div></li><li id="bc_0_34B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/Richard-Lambert-Photo.jpg"></div><div id="c3274373446074616052" class="comment-block"><div id="bc_0_34M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/14766504022599651016">Richard C. Lambert</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1447935932820#c3274373446074616052">November 19, 2015</a></span></div><p id="bc_0_34MC" class="comment-content"> This is the key to getting started. Two years ago some of us at work formed a study group to review Stats 202 class material. This is what got me excited and started with data analytics. Only 2 of the 5 members of our study group chose to dive deeper into this field (data science is not for everyone).<a href="http://orhanergun.net/" rel="nofollow">ccde written</a></p><span id="bc_0_34MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1580462501"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3274373446074616052">Delete</a></span></span></div><div id="bc_0_34BR" class="comment-replies"></div><div id="bc_0_34B_box" class="comment-replybox-single"></div></li><li id="bc_0_35B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c3065545627437140611" class="comment-block"><div id="bc_0_35M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/12481760346246200254">Stephen</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1448343700182#c3065545627437140611">November 24, 2015</a></span></div><p id="bc_0_35MC" class="comment-content">Testing is the only way to deliver reliable products in the Information Technology market. Articles like this are vital in improvising one's ability as a software testing professional. Thank you so much for sharing this information in here. Keep blogging.<br><br><a href="http://www.fitaacademy.com/courses/software-testing-training-in-chennai/" rel="nofollow">Software testing training in chennai</a> | <a href="http://www.fitaacademy.com/courses/software-testing-training-in-chennai/" rel="nofollow">Automation testing courses in chennai</a> | <a href="http://www.fitaacademy.com/courses/software-testing-training-in-chennai/" rel="nofollow">Software testing institute in chennai</a><br></p><span id="bc_0_35MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-125158823"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=3065545627437140611">Delete</a></span></span></div><div id="bc_0_35BR" class="comment-replies"></div><div id="bc_0_35B_box" class="comment-replybox-single"></div></li><li id="bc_0_36B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/b36-rounded.png"></div><div id="c6931048430356223807" class="comment-block"><div id="bc_0_36M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="https://www.blogger.com/profile/13288997936733232050">Arthur Mac</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html?showComment=1448615041340#c6931048430356223807">November 27, 2015</a></span></div><p id="bc_0_36MC" class="comment-content">Automation will make any work to be completed so soon(<a href="http://www.fitaacademy.com/courses/selenium-training-in-chennai/" rel="nofollow">Selenium training in chennai</a>), in addition to this recording the actions is possible with automated tool. Your content explicitely states the same(<a href="http://www.fitaacademy.com/courses/selenium-training-in-chennai/" rel="nofollow">Selenium testing course in chennai</a>). Thanks for sharing this worth able content in here. This was very useful to me as well. Keep blogging like this(<a href="http://www.fitaacademy.com/courses/selenium-training-in-chennai/" rel="nofollow">Selenium training institutes in chennai</a>).</p><span id="bc_0_36MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-2144218067"><a o="d" target="_self" href="https://www.blogger.com/delete-comment.g?blogID=6576681508814660796&postID=6931048430356223807">Delete</a></span></span></div><div id="bc_0_36BR" class="comment-replies"></div><div id="bc_0_36B_box" class="comment-replybox-single"></div></li></ol><div id="bc_0_37I" class="continue" kind="ci" style="display: none;"><a href="javascript:;" target="_self">Add comment</a></div><div id="bc_0_37T_box" class="comment-replybox-thread"><iframe allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" frameborder="0" height="280px" id="comment-editor" name="comment-editor" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/comment-iframe.html" width="100%" style="display: block;"></iframe></div><div id="bc_0_37L" class="loadmore loaded" kind="rb"><a href="javascript:;" target="_self">Load more...</a></div></div></div></div></div>
+</div>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<p>
+</p>
+<a href="https://www.blogger.com/comment-iframe.g?blogID=6576681508814660796&postID=3543517264764139272&blogspotRpcToken=3068389" id="comment-editor-src"></a>
+
+<script type="text/javascript" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/2443413180-comment_from_post_iframe.js"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://www.rcasts.com/2013/05/solving-multiple-supplier-selection.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://www.rcasts.com/2012/11/big-data-etl-and-big-data-analysis.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post</a>
+</span>
+<a class="home-link" href="http://www.rcasts.com/">Home</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="http://www.rcasts.com/feeds/3543517264764139272/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en'};</script>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget FollowByEmail" id="FollowByEmail1">
+<h2 class="title">Follow by Email</h2>
+<div class="widget-content">
+<div class="follow-by-email-inner">
+<form action="https://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open(&quot;https://feedburner.google.com/fb/a/mailverify?uri=EnterpriseSoftwareDoesntHaveToSuck&quot;, &quot;popupwindow&quot;, &quot;scrollbars=yes,width=550,height=520&quot;); return true" target="popupwindow">
+<table width="100%">
+<tbody><tr>
+<td>
+<input class="follow-by-email-address" name="email" placeholder="Email address..." type="text">
+</td>
+<td width="64px">
+<input class="follow-by-email-submit" type="submit" value="Submit">
+</td>
+</tr>
+</tbody></table>
+<input name="uri" type="hidden" value="EnterpriseSoftwareDoesntHaveToSuck">
+<input name="loc" type="hidden" value="en_US">
+</form>
+</div>
+</div>
+<span class="item-control blog-admin">
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6576681508814660796&widgetType=FollowByEmail&widgetId=FollowByEmail1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;FollowByEmail1&quot;));" target="configFollowByEmail1" title="Edit">
+<img alt="" height="18" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</span>
+</div></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="sidebar section" id="sidebar-right-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="sidebar section" id="sidebar-right-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sidebar section" id="sidebar-right-3"><div class="widget PopularPosts" id="PopularPosts1">
+<h2>Popular Posts This Month</h2>
+<div class="widget-content popular-posts">
+<ul>
+<li>
+<a href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science.html">Software engineer's guide to getting started with data science</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2010/04/social-network-analysis-using-r-and.html">Social Network Analysis using R and Gephis</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2010/11/any-r-packages-to-solve-vehicle-routing.html">Any R packages to solve Vehicle Routing Problem?</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2011/03/why-learn-r.html">Why learn R?</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2009/02/architecture-coe-swot-analysis-by-neal.html">Architecture CoE SWOT analysis by Neal Ford</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2010/11/learning-r.html">Learning R</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2010/06/data-preparation-code-for-social.html">Data preparation for Social Network Analysis using R and Gephi</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2012/03/data-analysis-training.html">Data Analysis Training</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2012/11/big-data-etl-and-big-data-analysis.html">Big Data ETL and Big Data Analysis</a>
+</li>
+<li>
+<a href="http://www.rcasts.com/2015/01/microsoft-to-acquire-revolution.html">Microsoft to acquire Revolution Analytics: Now this gets interesting...</a>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6576681508814660796&widgetType=PopularPosts&widgetId=PopularPosts1&action=editWidget&sectionId=sidebar-right-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;PopularPosts1&quot;));" target="configPopularPosts1" title="Edit">
+<img alt="" height="18" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Label" id="Label1">
+<h2>Labels</h2>
+<div class="widget-content cloud-label-widget-content">
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/agile">agile</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/Big%20data">Big data</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/collaboration">collaboration</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://www.rcasts.com/search/label/cricket">cricket</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/data%20analysis">data analysis</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://www.rcasts.com/search/label/design">design</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://www.rcasts.com/search/label/development">development</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/document%20collaboration">document collaboration</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/following">following</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/fun">fun</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/Gephi">Gephi</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://www.rcasts.com/search/label/high%20performing%20teams">high performing teams</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/hiring">hiring</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/india">india</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/leading">leading</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/learning">learning</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/me">me</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/next%20level">next level</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/offshore">offshore</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/onshore">onshore</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/open%20source">open source</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/pixel%20perfect">pixel perfect</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/product%20customizations">product customizations</a>
+</span>
+<span class="label-size label-size-5">
+<a dir="ltr" href="http://www.rcasts.com/search/label/R">R</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://www.rcasts.com/search/label/retrospective">retrospective</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/ruby">ruby</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/SAS">SAS</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/scrum">scrum</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/soccer">soccer</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/Social%20Network%20Analysis">Social Network Analysis</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/Strataconf">Strataconf</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://www.rcasts.com/search/label/team%20location">team location</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/vehicle%20routing%20problem">vehicle routing problem</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/vrp">vrp</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://www.rcasts.com/search/label/war%20for%20talent">war for talent</a>
+</span>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6576681508814660796&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebar-right-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Label1&quot;));" target="configLabel1" title="Edit">
+<img alt="" height="18" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot section" id="footer-1"></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3" name="Footer"><div class="widget Attribution" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Simple template. Powered by <a href="https://www.blogger.com/" target="_blank">Blogger</a>.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6576681508814660796&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=footer-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Attribution1&quot;));" target="configAttribution1" title="Edit">
+<img alt="" height="18" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/2759014865-widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '6576681508814660796';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6576681508814660796','//www.rcasts.com/2012/12/software-engineers-guide-to-getting.html','6576681508814660796');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6576681508814660796', 'bloggerUrl': 'https://www.blogger.com', 'title': 'Enterprise Software Doesn\47t Have to Suck', 'pageType': 'item', 'postId': '3543517264764139272', 'url': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html', 'canonicalUrl': 'http://www.rcasts.com/2012/12/software-engineers-guide-to-getting.html', 'homepageUrl': 'http://www.rcasts.com/', 'canonicalHomepageUrl': 'http://www.rcasts.com/', 'blogspotFaviconUrl': 'http://www.rcasts.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'useUniversalAnalytics': false, 'pageName': 'Software engineer\47s guide to getting started with data science', 'pageTitle': 'Enterprise Software Doesn\47t Have to Suck: Software engineer\47s guide to getting started with data science', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Enterprise Software Doesn\46#39;t Have to Suck - Atom\42 href\75\42http://www.rcasts.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Enterprise Software Doesn\46#39;t Have to Suck - RSS\42 href\75\42http://www.rcasts.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Enterprise Software Doesn\46#39;t Have to Suck - Atom\42 href\75\42https://www.blogger.com/feeds/6576681508814660796/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Enterprise Software Doesn\46#39;t Have to Suck - Atom\42 href\75\42http://www.rcasts.com/feeds/3543517264764139272/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'postImageThumbnailUrl': 'http://1.bp.blogspot.com/-FvaumXIPtQ0/UOENAsGZ_VI/AAAAAAAAAjc/yanGOg9kpjY/s72-c/data+science+is+the+new+black.png', 'postImageUrl': 'http://1.bp.blogspot.com/-FvaumXIPtQ0/UOENAsGZ_VI/AAAAAAAAAjc/yanGOg9kpjY/s400/data+science+is+the+new+black.png', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { (function(){function c(a){this.t\75{};this.tick\75function(a,c,b){var d\75void 0!\75b?b:(new Date).getTime();this.t[a]\75[d,c];if(void 0\75\75b)try{window.console.timeStamp(\42CSI/\42+a)}catch(e){}};this.tick(\42start\42,null,a)}var a;window.performance\46\46(a\75window.performance.timing);var h\75a?new c(a.responseStart):new c;window.jstiming\75{Timer:c,load:h};if(a){var b\75a.navigationStart,e\75a.responseStart;0\74b\46\46e\76\75b\46\46(window.jstiming.srt\75e-b)}if(a){var d\75window.jstiming.load;0\74b\46\46e\76\75b\46\46(d.tick(\42_wtsrt\42,void 0,b),d.tick(\42wtsrt_\42,\n\42_wtsrt\42,e),d.tick(\42tbsd_\42,\42wtsrt_\42))}try{a\75null,window.chrome\46\46window.chrome.csi\46\46(a\75Math.floor(window.chrome.csi().pageT),d\46\0460\74b\46\46(d.tick(\42_tbnd\42,void 0,window.chrome.csi().startE),d.tick(\42tbnd_\42,\42_tbnd\42,b))),null\75\75a\46\46window.gtbExternal\46\46(a\75window.gtbExternal.pageT()),null\75\75a\46\46window.external\46\46(a\75window.external.pageT,d\46\0460\74b\46\46(d.tick(\42_tbnd\42,void 0,window.external.startE),d.tick(\42tbnd_\42,\42_tbnd\42,b))),a\46\46(window.jstiming.pt\75a)}catch(k){}})();window.tickAboveFold\75function(c){var a\0750;if(c.offsetParent){do a+\75c.offsetTop;while(c\75c.offsetParent)}c\75a;750\76\75c\46\46window.jstiming.load.tick(\42aft\42)};var f\75!1;function g(){f||(f\75!0,window.jstiming.load.tick(\42firstScrollTime\42))}window.addEventListener?window.addEventListener(\42scroll\42,g,!1):window.attachEvent(\42onscroll\42,g);\n })();\74/script\076', 'mobileHeadScript': '', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42https://www.blogger.com/static/v1/jsbin/1494333581-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/f01787774e22c89a', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sf': 'n', 'tf': ''}}, {'name': 'messages', 'data': {'archive': 'Archive', 'deleteBacklink': 'Delete Backlink', 'deleteComment': 'Delete Comment', 'keepReading': 'Keep reading', 'labels': 'Labels', 'loading': 'Loading...', 'myBlogList': 'My Blog List', 'myFavoriteSites': 'My favorite sites', 'newer': 'Newer', 'newest': 'Newest', 'noTitle': 'No title', 'older': 'Older', 'oldest': 'Oldest', 'popularPosts': 'Popular Posts', 'popularPostsFromThisBlog': 'Popular posts from this blog', 'postAComment': 'Post a Comment', 'reportAbuse': 'Report Abuse', 'search': 'Search', 'share': 'Share', 'showAll': 'Show all', 'subscribe': 'Subscribe', 'subscribeToThisBlog': 'Subscribe to this blog', 'onlyTeamMembersCanComment': 'Note: Only a member of this blog may post a comment.'}}, {'name': 'skin', 'data': {'vars': {'post_footer_background_color': '#303030', 'tabs_text_color': '#999999', 'date_header_letterspacing': 'inherit', 'content_shadow_spread': '40px', 'body_background_override': '', 'description_text_size': '140%', 'mobile_background_size': 'auto', 'header_shadow_spread': '1px', 'image_border_color': '#111111', 'date_header_color': '#cccccc', 'header_shadow_offset_top': '-1px', 'header_border_horizontalsize': '0', 'widget_title_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_border_color': '#404040', 'tabs_bevel_border_width': '0', 'body_background_gradient_tile': 'none', 'description_text_color': '#aaaaaa', 'main_section_margin': '15px', 'post_title_font': 'normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'page_width': 'auto', 'paging_background': 'transparent none no-repeat scroll top center', 'body_text_color': '#cccccc', 'content_padding': '10px', 'header_background_gradient': 'none', 'post_margin_bottom': '25px', 'header_shadow_offset_left': '-1px', 'tabs_background_color': '#222222', 'content_background_color': '#333333', 'body_background_gradient_cap': 'none', 'main_padding_top': '30px', 'widget_alternate_text_color': '#999999', 'image_text_color': '#cccccc', 'link_visited_color': '#cc6600', 'tabs_margin_side': '30px', 'image_border_large_size': '1px', 'content_shadow_spread_webkit': '5px', 'mobile_button_color': '#ffffff', 'tabs_selected_text_color': '#ffffff', 'main_border_width': '0', 'content_background_color_selector': '.content-inner', 'link_color': '#dd7700', 'post_footer_border_color': '#444444', 'date_header_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_background_gradient': 'none', 'content_padding_horizontal': '10px', 'header_font': 'normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'startSide': 'left', 'tabs_font': 'normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'widget_title_text_color': '#ffffff', 'header_border_size': '1px', 'tabs_selected_background_color': '#000000', 'date_header_margin': 'inherit', 'footer_bevel': '0', 'image_border_small_size': '0', 'content_shadow_spread_ie': '10px', 'mobile_background_overlay': 'transparent none repeat scroll top left', 'endSide': 'right', 'date_header_padding': 'inherit', 'image_background_color': '#111111', 'body_rule_color': '#404040', 'header_bottom_border_size': '1px', 'page_width_selector': '.region-inner', 'body_background_color': '#292929', 'header_text_color': '#ffffff', 'main_padding': '15px', 'date_header_background_color': 'transparent', 'tabs_border_width': '1px', 'body_font': 'normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'link_hover_color': '#cc6600', 'header_background_color': 'transparent', 'keycolor': '#dd7700', 'main_padding_bottom': '30px', 'post_footer_text_color': '#888888', 'tabs_margin_top': '0', 'header_padding': '30px'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/68035727-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/1185134592-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowByEmailView', new _WidgetInfo('FollowByEmail1', 'sidebar-right-1', null, document.getElementById('FollowByEmail1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts1', 'sidebar-right-3', null, document.getElementById('PopularPosts1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-right-3', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': 'Simple template. Powered by \74a href\75\47https://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76.'}, 'displayModeFull'));
+</script>
+
+<link type="text/css" rel="stylesheet" href="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/1185134592-lightbox_bundle.css"><script type="text/javascript" src="./Enterprise Software Doesn't Have to Suck_ Software engineer's guide to getting started with data science_files/68035727-lbx.js"></script></body></html>

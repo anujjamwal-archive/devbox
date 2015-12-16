@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0143)https://www.onenote.com/clipper/ui?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107&SilentAuthAttempted=1&OriginDomain=www.zipfianacademy.com&fromAR=1 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge; IE=10; IE=9; IE=8">
+	<title>
+		OneNote Clipper
+	</title>
+
+	<link type="text/css" rel="stylesheet" href="SiteIntl.css">
+	<link type="text/css" rel="stylesheet" href="ClipperUI.css">
+	<link type="text/css" rel="stylesheet" href="ondc_clipper_cluster.css">
+
+	<script>
+
+
+		var ApiCanary = "hiQT59Ww41chxv2sFdQoXShwtYjeYDfBQGfdugcTB5c=,635848078185944592";
+		var ApiCanaryResponseHeaderName = "X-NewKey";
+		var ApiTimeout = 60000;
+		var ClipperSignInUrl = "https://www.onenote.com/hrd?ReturnUrl=https:%2f%2fwww.onenote.com%2fclipper%2fsignincomplete%3fusid%3d3908b4fa-5793-4bfb-98df-8309b5f9c107&Popup=true";
+		var ClipperSignOutUrl = "https://www.onenote.com/clipper/signout?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107";
+		var ClipperFeedbackUrl = "http://www.onenote.com/feedback?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107&LogCategory=OneNoteClipperUsage";
+		var CorrelationId = "e38b1d5f-bf33-4f08-b405-98989c066043";
+		var IsUserAuthenticated = true;
+		var LocStringCitation = "Clipped from: {0}";
+		var SessionId = "3908b4fa-5793-4bfb-98df-8309b5f9c107";
+		var UserName = "Anuj Jamwal";
+		var UserId = "anujjamwal@hotmail.com";
+		var UserType = "WindowsLiveId";
+
+		// BRS
+		var AugmentationEnabled = true;
+		var LocationPickerEnabled = true;
+		var RegionClipEnabled = true;
+		var ClipperOrgIdEnabled = true;
+		var sectionPickerNumberOfExpandsInGetNotebooksCall = 4;
+
+		// Experiments
+		var DefaultToAugmentedButton = false;
+
+		// SectionPicker
+		var clipperImageClusterUrlSetInCshtml = "https://cdn.onenote.net/1665011550_Images/clipper/";
+		var loadingImageUrlSetInCshtml = "https://cdn.onenote.net/1665011550_Images/loadingCircle.gif";
+		var getDataErrorMessageSetInCshtml = "OneNote was unable to load your notebooks. Please try again later.";
+		var defaultLocationString = "Default Location";
+
+		// Set the uls category string.
+		// This value is consumed in BrowserUls.ts
+		var ulsCategoryStringSetInCshtml = "OneNoteClipperUsage";
+
+		// Enum declaration for Augmentation Models
+		var ContentModels;
+		(function (ContentModels) {
+			ContentModels[ContentModels["None"] = 0] = "None";
+			ContentModels[ContentModels["Article"] = 1] = "Article";
+			ContentModels[ContentModels["BizCard"] = 2] = "BizCard";
+			ContentModels[ContentModels["Recipe"] = 3] = "Recipe";
+			ContentModels[ContentModels["Product"] = 4] = "Product";
+			ContentModels[ContentModels["Screenshot"] = 5] = "Screenshot";
+			ContentModels[ContentModels["Wrapstar"] = 6] = "Wrapstar";
+		})(ContentModels || (ContentModels = {}));
+
+		// Create mappings of Augmentation Models to localized strings and button image uris
+		var EnumToLocalizedStrings = {};
+		var EnumToButtonImgUris = {};
+			EnumToLocalizedStrings[0] = "";
+			EnumToButtonImgUris[0] = "";
+			EnumToLocalizedStrings[1] = "Article";
+			EnumToButtonImgUris[1] = "https://cdn.onenote.net/1665011550_Images/clipper/article.png";
+			EnumToLocalizedStrings[2] = "";
+			EnumToButtonImgUris[2] = "";
+			EnumToLocalizedStrings[3] = "Recipe";
+			EnumToButtonImgUris[3] = "https://cdn.onenote.net/1665011550_Images/clipper/recipe.png";
+			EnumToLocalizedStrings[4] = "Product";
+			EnumToButtonImgUris[4] = "https://cdn.onenote.net/1665011550_Images/clipper/product.png";
+			EnumToLocalizedStrings[5] = "";
+			EnumToButtonImgUris[5] = "";
+			EnumToLocalizedStrings[6] = "";
+			EnumToButtonImgUris[6] = "";
+	</script>
+
+	<script src="jquery-1.7.1.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script src="CommonDiagnostics.js"></script>
+	<script src="ClipperUI.js"></script>
+
+	<script>
+		Clipper.Constants.Strings.SignOutAction = "Sign Out";
+		Clipper.Constants.Urls.Auth = "https://www.onenote.com/clipper/auth?usid=3908b4fa-5793-4bfb-98df-8309b5f9c107";
+		Clipper.Constants.Urls.CheckMarkIn = "https://cdn.onenote.net/1665011550_Images/clipper/CheckMarkIn.png";
+		Clipper.Constants.Urls.SpinnerIn = "https://cdn.onenote.net/1665011550_Images/clipper/SpinnerIn.png";
+		Clipper.Constants.Urls.SpinnerLoop = "https://cdn.onenote.net/1665011550_Images/clipper/SpinnerLoop.png";
+		Clipper.Constants.Urls.SpinnerOut = "https://cdn.onenote.net/1665011550_Images/clipper/SpinnerOut.png";
+
+		// Map the HTTP response codes that we want to handle specifically.
+		var HandledExtendedResponseCodes =
+		{
+			// ID:											"Error String"															TreatAsACE
+			"10001": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			true),	// UnexpectedServerError
+			"10002": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			true),	// ServiceUnavailable
+			"10003": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			false),	// MaxRequestsReached
+			"10004": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved here because the section is password protected.",		false),	// PasswordProtectedSection
+			"10006": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved here because the section is corrupt.",		false),	// CorruptedSection
+			"10007": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			true),	// ServerTooBusy
+			"19999": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			true),	// GenericError
+			"30101": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved because your OneDrive account has reached its size limit.",			false),	// OneDriveQuotaExceeded
+			"30102": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved here because the section has reached its size limit.",		false),	// SectionTooLarge
+			"30103": new OneNoteApi.ResponseCodeInformation("Something went wrong. Please try clipping the page again.",			true),	// CoherencyFailure
+			"30104": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved because your Microsoft account has been suspended.",	false),	// UserAccountSuspended
+			"30105": new OneNoteApi.ResponseCodeInformation("Your clip can't be saved because your OneDrive for Business account isn't set up.",		false)	// OneDriveForBusinessNotProvisioned
+		};
+	</script>
+
+</head>
+<body class="ClipperContainer" id="clipperFrame" style="direction: ltr" marginwidth="0" marginheight="0">
+	<div id="clipperUIContainer" style="overflow: hidden; height: 116px; left: 356px; width: 0px; opacity: 0;">
+		<div id="closeButtonContainer" style="display: none; opacity: 1; left: 0px;">
+			<a id="closeButton" tabindex="300" style="outline-style: none;">
+				<img id="closeButtonIcon" src="close.png">
+			</a>
+		</div>
+		<div id="contentContainer">
+			<div id="clipperSignInContainer" style="display: none;">
+				<img id="signInLogo" src="onenotelogoclipper.png">
+				<div id="signInMessageLabelContainer" class="messageLabelContainer">
+					<span class="actionLabelFont messageLabel">OneNote Clipper</span>
+				</div>
+				<a id="signinButton" tabindex="1">
+					<div class="wideButtonContainer">
+						<span class="wideButtonFont wideActionButton">Sign In</span>
+					</div>
+				</a>
+			</div>
+
+			<div id="clipperButtonContainer" style="display: none; opacity: 0; left: 20px;">
+				<div id="clipTypeContainer">
+					<a id="fullPageButton" class="clipTypeButton selectedClipOption" tabindex="40" title="Take a screenshot of the whole page, just like you see it.">
+						<img src="fullpage.png" class="clipTypeButtonIcon" alt="Full Page">
+						<span class="buttonLabelFont clipTypeLabel">Full Page</span>
+					</a>
+					<a id="regionModeButton" class="clipTypeButton" style="" tabindex="41" title="Take a screenshot of the part of the page you&#39;ll select.">
+						<img src="region.png" class="clipTypeButtonIcon" alt="Region">
+						<span class="buttonLabelFont clipTypeLabel">Region</span>
+					</a>
+					<a id="augmentationButton" class="clipTypeButton" style="" tabindex="42">
+						<img id="augmentationButtonImage" src="article.png" class="clipTypeButtonIcon" alt="Article">
+						<span id="augmentationButtonLabel" class="buttonLabelFont clipTypeLabel">Article</span>
+					</a>
+				</div>
+
+				<div id="locationPickerContainer">
+					<div class="optionLabel">
+						<label class="buttonLabelFont SaveTo">Location</label>
+					</div>
+					
+
+
+<div class="SaveToLocationContainer" id="SaveToLocationContainer">
+	<a id="SectionLocationContainer" role="button" tabindex="50" style="outline-style: none;">
+		<div class="OpenSectionPickerArrow">
+			<img id="downArrow" class="arrowDown" src="dropdownarrow.png" alt="Feedback?">
+		</div>
+		<div class="SectionLocation" title="Personal (Web) &gt; Unfiled Notes">Personal (Web) &gt; Unfiled Notes</div>
+	</a>
+</div>
+
+				</div>
+
+					<div id="annotationContainer">
+						<a id="annotationPlaceholder" class="buttonLabelFont optionLabel" tabindex="25">Add a note...</a>
+						<div id="annotationFieldContainer" style="display: none">
+							<div class="optionLabel">
+								<label id="annotationLabel" class="buttonLabelFont">Note</label>
+							</div>
+							<textarea id="annotationField" class="annotationFont" rows="4" tabindex="26"></textarea>
+						</div>
+					</div>
+
+				<div id="clipButtonContainer" class="wideButtonContainer">
+					<a id="clipButton" class="wideActionButton clipButton" tabindex="30" style="outline-style: none;">
+						<span class="wideButtonFont">Clip</span>
+						<span id="o365BetaTag" class="wideButtonFont" style="display: none">beta</span>
+					</a>
+				</div>
+			</div>
+
+			<div id="clipperRegionClipContainer" style="display: none;">
+				<div class="messageLabelContainer">
+					<span class="informationLabelFont messageLabel">Drag and release to capture a screenshot</span>
+				</div>
+				<a id="regionClipCancelButton" tabindex="170">
+					<div class="wideButtonContainer">
+						<span class="wideButtonFont wideActionButton">Cancel</span>
+					</div>
+				</a>
+			</div>
+
+			<div id="clipperApiProgressContainer" class="progressPadding" style="display: none; opacity: 0; left: 20px;">
+				<div id="spinnerInContainer" class="spinnerAnimation" style="height: 32px; display: none; background-image: url(https://cdn.onenote.net/1665011550_Images/clipper/SpinnerIn.png); background-position: 0px -992px; background-repeat: no-repeat;"></div>
+				<div id="spinnerLoopContainer" class="spinnerAnimation" style="height: 32px; display: none; background-image: url(https://cdn.onenote.net/1665011550_Images/clipper/SpinnerLoop.png); background-position: 0px 0px; background-repeat: no-repeat;"></div>
+				<div id="spinnerOutContainer" class="spinnerAnimation" style="height: 32px; display: inline-block; background-image: url(https://cdn.onenote.net/1665011550_Images/clipper/SpinnerOut.png); background-position: 0px -864px; background-repeat: no-repeat;"></div>
+				<span class="actionLabelFont messageLabel">Clipping Page</span>
+			</div>
+
+			<div id="clipperSuccessContainer" class="resultPagePadding" style="display: none; opacity: 1; left: 0px;">
+				<div id="successContainer" class="messageLabelContainer">
+					<div id="checkMarkContainer" style="height: 28px; background-image: url(https://cdn.onenote.net/1665011550_Images/clipper/CheckMarkIn.png); background-position: 0px -812px; background-repeat: no-repeat;"></div>
+					<span class="actionLabelFont messageLabel">Clip Successful!</span>
+				</div>
+				<a id="launchOneNoteButton" target="_blank" tabindex="180" href="https://onedrive.live.com/redir.aspx?cid=366e4a022a73bb38&page=edit&resid=366E4A022A73BB38!109&parId=366E4A022A73BB38!108&wd=target%28Unfiled%20Notes.one%7Cd770f979-8aa6-40c6-8d95-a44ef19cdd85%2FA%20Practical%20Intro%20to%20Data%20Science%20%E2%80%94%20Zipfian%20Academy%20-%7C6ff45ae2-5bb7-4e9f-99cf-3aaf08e23f2e%2F%29">
+					<div class="wideButtonContainer">
+						<span class="wideButtonFont wideActionButton">View in OneNote</span>
+					</div>
+				</a>
+			</div>
+
+			<div id="clipperFailureContainer" class="stateContainer resultPagePadding" style="display: none;">
+				<div class="messageLabelContainer">
+					<span id="apiErrorMessage" class="failureMessageFont messageLabel">Something went wrong. Please try clipping the page again.</span>
+				</div>
+				<a id="tryAgainButton" tabindex="185">
+					<div class="wideButtonContainer">
+						<span class="wideButtonFont wideActionButton">Try Again</span>
+					</div>
+				</a>
+				<a id="backToHomeButton" tabindex="185" style="display:none">
+					<div class="wideButtonContainer">
+						<span class="wideButtonFont wideActionButton">Back</span>
+					</div>
+				</a>
+			</div>
+
+			<div id="clipperFooterContainer" class="footerFont" style="display: none; opacity: 1; left: 0px;">
+				<div class="footerButtonsContainer">
+					<div class="footerButtonsLeft confineText">
+						<a id="feedbackButton" tabindex="190">
+							<img id="feedbackImage" src="feedbacksmiley.png" alt="Feedback?">
+							<span id="feedbackText">Feedback?</span>
+						</a>
+					</div>
+					<div class="footerButtonsRight">
+							<a id="currentUserControl" tabindex="200">
+								<img id="userDropdownArrow" src="dropdownarrow.png">
+								<div id="currentUserDetails">
+									<div id="currentUserName" class="confineText">Anuj Jamwal</div>
+									<div id="currentUserId" class="confineText currentUserIdFont">anujjamwal@hotmail.com</div>
+								</div>
+							</a>
+					</div>
+				</div>
+					<div id="userSettingsContainer" style="display: none" class="userSettingsFont"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="SectionPickerPopup" style="display: none; top: 228px; left: 37px; width: 262px;">
+	<div id="sectionPickerContainer" class="SectionPickerContainer FontXS2"><ul class="SectionPickerState SectionPicker" style="display: block;"><li class="Notebook Closed" id="0-366E4A022A73BB38!119" tabindex="50"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div><div class="Collapse"><img class="CollapseImage" src="Arrow-Down.png"></div></div><div class="EntityImage"><img class="NotebookImage" src="Notebook.png"></div><div class="EntityNameContainer"><label class="EntityName">iOS learning</label></div></div><ul><li class="Section Closed" id="0-366E4A022A73BB38!121" tabindex="51"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div></div><div class="EntityImage"><img class="SectionImage" src="Section.png"></div><div class="EntityNameContainer"><label class="EntityName">Untitled Section</label></div></div></li></ul></li><li class="Notebook Closed" id="0-366E4A022A73BB38!2804" tabindex="52" style="outline-style: none;"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div><div class="Collapse"><img class="CollapseImage" src="Arrow-Down.png"></div></div><div class="EntityImage"><img class="NotebookImage" src="Notebook.png"></div><div class="EntityNameContainer"><label class="EntityName">Learning</label></div></div><ul><li class="Section Closed" id="0-366E4A022A73BB38!2807" tabindex="53"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div></div><div class="EntityImage"><img class="SectionImage" src="Section.png"></div><div class="EntityNameContainer"><label class="EntityName">Neural Network</label></div></div></li></ul></li><li class="Notebook Closed" id="0-366E4A022A73BB38!2788" tabindex="54"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div><div class="Collapse"><img class="CollapseImage" src="Arrow-Down.png"></div></div><div class="EntityImage"><img class="NotebookImage" src="Notebook.png"></div><div class="EntityNameContainer"><label class="EntityName">Machine Learning</label></div></div><ul></ul></li><li class="Notebook Closed" id="0-366E4A022A73BB38!2793" tabindex="55"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div><div class="Collapse"><img class="CollapseImage" src="Arrow-Down.png"></div></div><div class="EntityImage"><img class="NotebookImage" src="Notebook.png"></div><div class="EntityNameContainer"><label class="EntityName">Personal</label></div></div><ul></ul></li><li class="Notebook Opened" id="0-366E4A022A73BB38!109" tabindex="56"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div><div class="Collapse"><img class="CollapseImage" src="Arrow-Down.png"></div></div><div class="EntityImage"><img class="NotebookImage" src="Notebook.png"></div><div class="EntityNameContainer"><label class="EntityName">Personal (Web)</label></div></div><ul><li class="Section SelectedSection" id="0-366E4A022A73BB38!110" tabindex="57"><div class="EntityImageAndNameContainer"><div class="ExpandCollapseContainer"><div class="Expand"><img class="ExpandImage" src="Arrow-Right.png"></div></div><div class="EntityImage"><img class="SectionImage" src="Section.png"></div><div class="EntityNameContainer"><label class="EntityName">Unfiled Notes</label></div></div></li></ul></li></ul><img src="loadingCircle.gif" class="SectionPickerState SectionPickerLoading" style="display: none;"><label class="SectionPickerState SectionPickerError" style="display: none;">OneNote was unable to load your notebooks. Please try again later.</label></div>
+</div>
+
+
+
+
+</body></html>
